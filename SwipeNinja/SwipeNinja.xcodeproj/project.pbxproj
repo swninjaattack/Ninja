@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52EA618A153F956D00781E15 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EA6188153F956D00781E15 /* background.png */; };
+		52EA618B153F956D00781E15 /* Ninja.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EA6189153F956D00781E15 /* Ninja.png */; };
 		F607CE0B1524E3CC00C80014 /* background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F607CE091524E3CC00C80014 /* background-hd.png */; };
 		F607CE0C1524E3CC00C80014 /* Ninja-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F607CE0A1524E3CC00C80014 /* Ninja-hd.png */; };
 		F6858CE6153BB4E2003589A5 /* CPNinja.m in Sources */ = {isa = PBXBuildFile; fileRef = F6858CE5153BB4E2003589A5 /* CPNinja.m */; };
@@ -17,7 +19,6 @@
 		F6B396BC15354390008F9860 /* CPRevolvePlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B396B515354390008F9860 /* CPRevolvePlatform.m */; };
 		F6B396BD15354390008F9860 /* CPSpringPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B396B715354390008F9860 /* CPSpringPlatform.m */; };
 		F6B396BE15354390008F9860 /* CPSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B396B915354390008F9860 /* CPSprite.m */; };
-		F6F06782153C900C005FF41A /* Ninja.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F06781153C900C005FF41A /* Ninja.png */; };
 		F6F0679B153F7EBB005FF41A /* scene5atlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6F06799153F7EBB005FF41A /* scene5atlas.plist */; };
 		F6F0679C153F7EBB005FF41A /* scene5atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F0679A153F7EBB005FF41A /* scene5atlas.png */; };
 		F6F067A1153F9170005FF41A /* scene1atlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6F0679F153F9170005FF41A /* scene1atlas.plist */; };
@@ -177,6 +178,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52EA6188153F956D00781E15 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = Resources/background.png; sourceTree = "<group>"; };
+		52EA6189153F956D00781E15 /* Ninja.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Ninja.png; path = Resources/Ninja.png; sourceTree = "<group>"; };
 		F607CE091524E3CC00C80014 /* background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-hd.png"; path = "Resources/background-hd.png"; sourceTree = "<group>"; };
 		F607CE0A1524E3CC00C80014 /* Ninja-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Ninja-hd.png"; path = "Resources/Ninja-hd.png"; sourceTree = "<group>"; };
 		F6858CE4153BB4E2003589A5 /* CPNinja.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPNinja.h; sourceTree = "<group>"; };
@@ -195,7 +198,6 @@
 		F6B396B715354390008F9860 /* CPSpringPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSpringPlatform.m; sourceTree = "<group>"; };
 		F6B396B815354390008F9860 /* CPSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSprite.h; sourceTree = "<group>"; };
 		F6B396B915354390008F9860 /* CPSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSprite.m; sourceTree = "<group>"; };
-		F6F06781153C900C005FF41A /* Ninja.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Ninja.png; path = ../../../Ninja.png; sourceTree = "<group>"; };
 		F6F06799153F7EBB005FF41A /* scene5atlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = scene5atlas.plist; sourceTree = "<group>"; };
 		F6F0679A153F7EBB005FF41A /* scene5atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scene5atlas.png; sourceTree = "<group>"; };
 		F6F0679F153F9170005FF41A /* scene1atlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = scene1atlas.plist; sourceTree = "<group>"; };
@@ -641,9 +643,10 @@
 		F6FE84CE1524C8A100B50824 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				52EA6188153F956D00781E15 /* background.png */,
+				52EA6189153F956D00781E15 /* Ninja.png */,
 				F607CE091524E3CC00C80014 /* background-hd.png */,
 				F607CE0A1524E3CC00C80014 /* Ninja-hd.png */,
-				F6F06781153C900C005FF41A /* Ninja.png */,
 				F6FE84CF1524C8A100B50824 /* Default.png */,
 				F6FE84D11524C8A100B50824 /* fps_images.png */,
 				F6FE84D31524C8A100B50824 /* Icon-72.png */,
@@ -1205,11 +1208,12 @@
 				F6FE86891524C8A500B50824 /* grossini_dance_atlas.png in Resources */,
 				F607CE0B1524E3CC00C80014 /* background-hd.png in Resources */,
 				F607CE0C1524E3CC00C80014 /* Ninja-hd.png in Resources */,
-				F6F06782153C900C005FF41A /* Ninja.png in Resources */,
 				F6F0679B153F7EBB005FF41A /* scene5atlas.plist in Resources */,
 				F6F0679C153F7EBB005FF41A /* scene5atlas.png in Resources */,
 				F6F067A1153F9170005FF41A /* scene1atlas.plist in Resources */,
 				F6F067A2153F9170005FF41A /* scene1atlas.png in Resources */,
+				52EA618A153F956D00781E15 /* background.png in Resources */,
+				52EA618B153F956D00781E15 /* Ninja.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
