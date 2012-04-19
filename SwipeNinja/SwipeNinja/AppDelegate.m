@@ -113,7 +113,8 @@ if( ! [director enableRetinaDisplay:YES] )
 	
 	// Run the intro Scene
 //	[[CCDirector sharedDirector] runWithScene: [HelloWorldLayer scene]];
-	[[GameManager sharedGameManager] runSceneWithID:kGameLevel1];
+//	[[GameManager sharedGameManager] runSceneWithID:kGameLevel1];
+    [[GameManager sharedGameManager] runSceneWithID:kMainMenuScene];
     //[[CCDirector sharedDirector] runWithScene:[GameScene node]];
 }
 
