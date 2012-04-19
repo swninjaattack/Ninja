@@ -13,11 +13,11 @@
 -(id)init {
     self = [super init];
     if (self != nil) {
-        BackgroundLayer *backgroundLayer = [BackgroundLayer node];
-        [self addChild:backgroundLayer z:0];
+//        BackgroundLayer *backgroundLayer = [BackgroundLayer node];
+//        [self addChild:backgroundLayer z:0];
         
         GameplayLayer *gameplayLayer = [GameplayLayer node];
-        [self addChild:gameplayLayer z:5];
+        [self addChild:gameplayLayer z:0];
     }
     return self;
 }

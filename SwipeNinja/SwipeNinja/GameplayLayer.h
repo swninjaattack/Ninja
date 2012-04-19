@@ -5,12 +5,21 @@
 //  Created by Ryan Lesko on 3/28/12.
 //  Copyright (c) 2012 University of Miami. All rights reserved.
 //
+#import "chipmunk.h"
 #import "cocos2d.h"
-#import "Ninja.h"
-#import <Foundation/Foundation.h>
+#import "drawSpace.h"
+#import "cpMouse.h"
+
+@class CPNinja;
 
 @interface GameplayLayer : CCLayer {
-    CCSprite *ninjaSprite;
+    double startTime;
+    cpSpace *space;
+    cpBody *groundBody;
+    //cpMouse *mouse;
+    CPNinja *ninja;
+    CCSpriteBatchNode *batchNode;
 }
+
 
 @end

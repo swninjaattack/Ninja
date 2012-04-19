@@ -14,3 +14,8 @@ typedef enum {
     kMainMenuScene = 1,
     kGameLevel1 = 101
 } SceneTypes;
+
+typedef enum {
+    kCollisionTypeGround = 0x1,
+    kCollisionTypeNinja
+} CollisionType;
