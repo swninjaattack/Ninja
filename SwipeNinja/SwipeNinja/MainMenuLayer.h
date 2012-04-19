@@ -13,6 +13,8 @@
 
 @interface MainMenuLayer : CCLayer {
     CCMenu *mainMenu;
+    CCMenu *levelOneSelect;
     CCMenu *sceneSelectMenu;
+    bool newGame;
 }
 @end
