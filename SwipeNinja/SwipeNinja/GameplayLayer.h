@@ -18,8 +18,20 @@
     cpBody *groundBody;
     //cpMouse *mouse;
     CPNinja *ninja;
+    CGSize levelBounds;
     CCSpriteBatchNode *batchNode;
+    BOOL platformLocs[100][100];
+    
+    CCTMXLayer *_meta;
+    CCTMXLayer *_foreground;
+    CCTMXTiledMap *_tileMap;
+    CCTMXLayer *_background;
+    
 }
 
+@property (nonatomic, retain) CCTMXLayer *foreground;
+@property (nonatomic, retain) CCTMXLayer *meta;
+@property (nonatomic, retain) CCTMXTiledMap *tileMap;
+@property (nonatomic, retain) CCTMXLayer *background;
 
 @end

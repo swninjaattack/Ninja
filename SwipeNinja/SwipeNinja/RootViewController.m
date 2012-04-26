@@ -52,49 +52,51 @@
 	//  - The ViewController way
 	//    - A bit slower, but the UiKit objects are placed in the right place
 	//
+    
+    return (interfaceOrientation == UIDeviceOrientationLandscapeRight);
 	
-#if GAME_AUTOROTATION==kGameAutorotationNone
-	//
-	// EAGLView won't be autorotated.
-	// Since this method should return YES in at least 1 orientation, 
-	// we return YES only in the Portrait orientation
-	//
-	return ( interfaceOrientation == UIInterfaceOrientationPortrait );
-	
-#elif GAME_AUTOROTATION==kGameAutorotationCCDirector
-	//
-	// EAGLView will be rotated by cocos2d
-	//
-	// Sample: Autorotate only in landscape mode
-	//
-	if( interfaceOrientation == UIInterfaceOrientationLandscapeLeft ) {
-		[[CCDirector sharedDirector] setDeviceOrientation: kCCDeviceOrientationLandscapeRight];
-	} else if( interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
-		[[CCDirector sharedDirector] setDeviceOrientation: kCCDeviceOrientationLandscapeLeft];
-	}
-	
-	// Since this method should return YES in at least 1 orientation, 
-	// we return YES only in the Portrait orientation
-	return ( interfaceOrientation == UIInterfaceOrientationPortrait );
-	
-#elif GAME_AUTOROTATION == kGameAutorotationUIViewController
-	//
-	// EAGLView will be rotated by the UIViewController
-	//
-	// Sample: Autorotate only in landscpe mode
-	//
-	// return YES for the supported orientations
-	
-	return ( UIInterfaceOrientationIsLandscape( interfaceOrientation ) );
-	
-#else
-#error Unknown value in GAME_AUTOROTATION
-	
-#endif // GAME_AUTOROTATION
-	
-	
-	// Shold not happen
-	return NO;
+//#if GAME_AUTOROTATION==kGameAutorotationNone
+//	//
+//	// EAGLView won't be autorotated.
+//	// Since this method should return YES in at least 1 orientation, 
+//	// we return YES only in the Portrait orientation
+//	//
+//	return ( interfaceOrientation == UIInterfaceOrientationPortrait );
+//	
+//#elif GAME_AUTOROTATION==kGameAutorotationCCDirector
+//	//
+//	// EAGLView will be rotated by cocos2d
+//	//
+//	// Sample: Autorotate only in landscape mode
+//	//
+//	if( interfaceOrientation == UIInterfaceOrientationLandscapeLeft ) {
+//		[[CCDirector sharedDirector] setDeviceOrientation: kCCDeviceOrientationLandscapeRight];
+//	} else if( interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+//		[[CCDirector sharedDirector] setDeviceOrientation: kCCDeviceOrientationLandscapeLeft];
+//	}
+//	
+//	// Since this method should return YES in at least 1 orientation, 
+//	// we return YES only in the Portrait orientation
+//	return ( interfaceOrientation == UIInterfaceOrientationPortrait );
+//	
+//#elif GAME_AUTOROTATION == kGameAutorotationUIViewController
+//	//
+//	// EAGLView will be rotated by the UIViewController
+//	//
+//	// Sample: Autorotate only in landscpe mode
+//	//
+//	// return YES for the supported orientations
+//	
+//	return ( UIInterfaceOrientationIsLandscape( interfaceOrientation ) );
+//	
+//#else
+//#error Unknown value in GAME_AUTOROTATION
+//	
+//#endif // GAME_AUTOROTATION
+//	
+//	
+//	// Shold not happen
+//	return NO;
 }
 
 //

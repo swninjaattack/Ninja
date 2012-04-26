@@ -52,6 +52,8 @@
 	
 	
 	CCDirector *director = [CCDirector sharedDirector];
+    
+    [director setDeviceOrientation:kCCDeviceOrientationLandscapeLeft];
 	
 	// Init the View Controller
 	viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];

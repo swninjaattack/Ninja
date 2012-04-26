@@ -39,10 +39,13 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
 -(id)initWithLocation:(CGPoint)location space:(cpSpace *)theSpace groundBody:(cpBody *)groundBody {
     if ((self = [super initWithSpriteFrameName:@"Ninja.png"])) {
         CGSize size = CGSizeMake(30, 30);
-        self.anchorPoint = ccp(0.5, 15/self.contentSize.height);
-        [self addBoxBodyAndShapeWithLocation:location size:size space:theSpace mass:1.0 e:0.0 u:0.5 collisionType:kCollisionTypeNinja canRotate:TRUE];
+        self.anchorPoint = ccp(0.5, 30/self.contentSize.height);
+        NSLog(@"%f, %f", self.contentSize.width, self.contentSize.height);
+        [self addBoxBodyAndShapeWithLocation:location size:size space:theSpace mass:1.0 e:0.0 u:1.0 collisionType:kCollisionTypeNinja canRotate:FALSE];
         groundShapes = cpArrayNew(0);
         cpSpaceAddCollisionHandler(space, kCollisionTypeNinja, kCollisionTypeGround, begin, preSolve, NULL, separate, NULL);
+        cpConstraint *constraint = cpRotaryLimitJointNew(groundBody, body, CC_DEGREES_TO_RADIANS(0), CC_DEGREES_TO_RADIANS(0));
+        cpSpaceAddConstraint(space, constraint);
     }
     return self;
 }
@@ -102,15 +105,15 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
         shape->surface_v = cpvzero;
     }
     
-    float margin = 70;
+    float margin = 20;
     CGSize winSize = [CCDirector sharedDirector].winSize;
     
     if (body->p.x < margin) {
         cpBodySetPos(body, ccp(margin, body->p.y));
     }
     
-    if (body->p.x > winSize.width - margin) {
-        cpBodySetPos(body, ccp(winSize.width - margin, body->p.y));
+    if (body->p.x > 1600 - margin) {
+        cpBodySetPos(body, ccp(1600 - margin, body->p.y));
     }
     
     if(ABS(accelerationFraction) > 0.05) { 

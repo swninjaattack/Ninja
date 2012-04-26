@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		52EA618A153F956D00781E15 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EA6188153F956D00781E15 /* background.png */; };
-		52EA618B153F956D00781E15 /* Ninja.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EA6189153F956D00781E15 /* Ninja.png */; };
 		F607CE0B1524E3CC00C80014 /* background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F607CE091524E3CC00C80014 /* background-hd.png */; };
-		F607CE0C1524E3CC00C80014 /* Ninja-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F607CE0A1524E3CC00C80014 /* Ninja-hd.png */; };
 		F6858CE6153BB4E2003589A5 /* CPNinja.m in Sources */ = {isa = PBXBuildFile; fileRef = F6858CE5153BB4E2003589A5 /* CPNinja.m */; };
 		F6B39698153540DD008F9860 /* drawSpace.c in Sources */ = {isa = PBXBuildFile; fileRef = F6B39682153540DD008F9860 /* drawSpace.c */; };
 		F6B396AF1535415F008F9860 /* cpMouse.c in Sources */ = {isa = PBXBuildFile; fileRef = F6B396AD1535415F008F9860 /* cpMouse.c */; };
@@ -19,10 +17,15 @@
 		F6B396BC15354390008F9860 /* CPRevolvePlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B396B515354390008F9860 /* CPRevolvePlatform.m */; };
 		F6B396BD15354390008F9860 /* CPSpringPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B396B715354390008F9860 /* CPSpringPlatform.m */; };
 		F6B396BE15354390008F9860 /* CPSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B396B915354390008F9860 /* CPSprite.m */; };
+		F6DA0E5B1547B752001435FE /* scene1atlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6DA0E591547B752001435FE /* scene1atlas.plist */; };
+		F6DA0E5C1547B752001435FE /* scene1atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = F6DA0E5A1547B752001435FE /* scene1atlas.png */; };
+		F6DA0E611547B768001435FE /* fixed-ortho-test2.png in Resources */ = {isa = PBXBuildFile; fileRef = F6DA0E5D1547B767001435FE /* fixed-ortho-test2.png */; };
+		F6DA0E621547B768001435FE /* meta_tiles.png in Resources */ = {isa = PBXBuildFile; fileRef = F6DA0E5E1547B767001435FE /* meta_tiles.png */; };
+		F6DA0E631547B768001435FE /* Ninja.png in Resources */ = {isa = PBXBuildFile; fileRef = F6DA0E5F1547B767001435FE /* Ninja.png */; };
+		F6DA0E641547B768001435FE /* TileMap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F6DA0E601547B768001435FE /* TileMap.tmx */; };
+		F6DA0E661547B902001435FE /* Ninja-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F6DA0E651547B901001435FE /* Ninja-hd.png */; };
 		F6F0679B153F7EBB005FF41A /* scene5atlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6F06799153F7EBB005FF41A /* scene5atlas.plist */; };
 		F6F0679C153F7EBB005FF41A /* scene5atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F0679A153F7EBB005FF41A /* scene5atlas.png */; };
-		F6F067A1153F9170005FF41A /* scene1atlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6F0679F153F9170005FF41A /* scene1atlas.plist */; };
-		F6F067A2153F9170005FF41A /* scene1atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F067A0153F9170005FF41A /* scene1atlas.png */; };
 		F6FE84BE1524C8A000B50824 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FE84BD1524C8A000B50824 /* QuartzCore.framework */; };
 		F6FE84C01524C8A000B50824 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FE84BF1524C8A000B50824 /* OpenGLES.framework */; };
 		F6FE84C21524C8A100B50824 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FE84C11524C8A000B50824 /* OpenAL.framework */; };
@@ -179,9 +182,7 @@
 
 /* Begin PBXFileReference section */
 		52EA6188153F956D00781E15 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = Resources/background.png; sourceTree = "<group>"; };
-		52EA6189153F956D00781E15 /* Ninja.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Ninja.png; path = Resources/Ninja.png; sourceTree = "<group>"; };
 		F607CE091524E3CC00C80014 /* background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-hd.png"; path = "Resources/background-hd.png"; sourceTree = "<group>"; };
-		F607CE0A1524E3CC00C80014 /* Ninja-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Ninja-hd.png"; path = "Resources/Ninja-hd.png"; sourceTree = "<group>"; };
 		F6858CE4153BB4E2003589A5 /* CPNinja.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPNinja.h; sourceTree = "<group>"; };
 		F6858CE5153BB4E2003589A5 /* CPNinja.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPNinja.m; sourceTree = "<group>"; };
 		F6B39682153540DD008F9860 /* drawSpace.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; name = drawSpace.c; path = libs/Chipmunk/Demo/drawSpace.c; sourceTree = "<group>"; };
@@ -198,10 +199,16 @@
 		F6B396B715354390008F9860 /* CPSpringPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSpringPlatform.m; sourceTree = "<group>"; };
 		F6B396B815354390008F9860 /* CPSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSprite.h; sourceTree = "<group>"; };
 		F6B396B915354390008F9860 /* CPSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSprite.m; sourceTree = "<group>"; };
+		F6DA0E3C15474FAE001435FE /* cpSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cpSpace.h; path = libs/Chipmunk/include/chipmunk/cpSpace.h; sourceTree = "<group>"; };
+		F6DA0E591547B752001435FE /* scene1atlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = scene1atlas.plist; sourceTree = "<group>"; };
+		F6DA0E5A1547B752001435FE /* scene1atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scene1atlas.png; sourceTree = "<group>"; };
+		F6DA0E5D1547B767001435FE /* fixed-ortho-test2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fixed-ortho-test2.png"; sourceTree = "<group>"; };
+		F6DA0E5E1547B767001435FE /* meta_tiles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meta_tiles.png; sourceTree = "<group>"; };
+		F6DA0E5F1547B767001435FE /* Ninja.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ninja.png; sourceTree = "<group>"; };
+		F6DA0E601547B768001435FE /* TileMap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TileMap.tmx; sourceTree = "<group>"; };
+		F6DA0E651547B901001435FE /* Ninja-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ninja-hd.png"; sourceTree = "<group>"; };
 		F6F06799153F7EBB005FF41A /* scene5atlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = scene5atlas.plist; sourceTree = "<group>"; };
 		F6F0679A153F7EBB005FF41A /* scene5atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scene5atlas.png; sourceTree = "<group>"; };
-		F6F0679F153F9170005FF41A /* scene1atlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = scene1atlas.plist; sourceTree = "<group>"; };
-		F6F067A0153F9170005FF41A /* scene1atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scene1atlas.png; sourceTree = "<group>"; };
 		F6FE84B91524C8A000B50824 /* SwipeNinja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeNinja.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6FE84BD1524C8A000B50824 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F6FE84BF1524C8A000B50824 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -456,7 +463,6 @@
 		F6FE86391524C8A400B50824 /* cpHashSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cpHashSet.h; path = libs/Chipmunk/include/chipmunk/cpHashSet.h; sourceTree = "<group>"; };
 		F6FE863A1524C8A400B50824 /* cpPolyShape.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cpPolyShape.h; path = libs/Chipmunk/include/chipmunk/cpPolyShape.h; sourceTree = "<group>"; };
 		F6FE863B1524C8A400B50824 /* cpShape.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cpShape.h; path = libs/Chipmunk/include/chipmunk/cpShape.h; sourceTree = "<group>"; };
-		F6FE863C1524C8A400B50824 /* cpSpace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cpSpace.h; path = libs/Chipmunk/include/chipmunk/cpSpace.h; sourceTree = "<group>"; };
 		F6FE863D1524C8A400B50824 /* cpSpaceHash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cpSpaceHash.h; path = libs/Chipmunk/include/chipmunk/cpSpaceHash.h; sourceTree = "<group>"; };
 		F6FE863E1524C8A400B50824 /* cpVect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cpVect.h; path = libs/Chipmunk/include/chipmunk/cpVect.h; sourceTree = "<group>"; };
 		F6FE863F1524C8A400B50824 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE.txt; path = libs/Chipmunk/LICENSE.txt; sourceTree = "<group>"; };
@@ -544,10 +550,10 @@
 		F6B396AC15354142008F9860 /* Chipmunk */ = {
 			isa = PBXGroup;
 			children = (
-				F6B396AD1535415F008F9860 /* cpMouse.c */,
 				F6B396AE1535415F008F9860 /* cpMouse.h */,
-				F6B39682153540DD008F9860 /* drawSpace.c */,
+				F6B396AD1535415F008F9860 /* cpMouse.c */,
 				F6B39683153540DD008F9860 /* drawSpace.h */,
+				F6B39682153540DD008F9860 /* drawSpace.c */,
 			);
 			name = Chipmunk;
 			sourceTree = "<group>";
@@ -572,8 +578,8 @@
 		F6F0678C153F75A5005FF41A /* Plists */ = {
 			isa = PBXGroup;
 			children = (
-				F6F0679F153F9170005FF41A /* scene1atlas.plist */,
-				F6F067A0153F9170005FF41A /* scene1atlas.png */,
+				F6DA0E591547B752001435FE /* scene1atlas.plist */,
+				F6DA0E5A1547B752001435FE /* scene1atlas.png */,
 				F6F0679A153F7EBB005FF41A /* scene5atlas.png */,
 				F6F06799153F7EBB005FF41A /* scene5atlas.plist */,
 			);
@@ -643,10 +649,13 @@
 		F6FE84CE1524C8A100B50824 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F6DA0E5D1547B767001435FE /* fixed-ortho-test2.png */,
+				F6DA0E5E1547B767001435FE /* meta_tiles.png */,
+				F6DA0E5F1547B767001435FE /* Ninja.png */,
+				F6DA0E651547B901001435FE /* Ninja-hd.png */,
+				F6DA0E601547B768001435FE /* TileMap.tmx */,
 				52EA6188153F956D00781E15 /* background.png */,
-				52EA6189153F956D00781E15 /* Ninja.png */,
 				F607CE091524E3CC00C80014 /* background-hd.png */,
-				F607CE0A1524E3CC00C80014 /* Ninja-hd.png */,
 				F6FE84CF1524C8A100B50824 /* Default.png */,
 				F6FE84D11524C8A100B50824 /* fps_images.png */,
 				F6FE84D31524C8A100B50824 /* Icon-72.png */,
@@ -1004,7 +1013,7 @@
 				F6FE86391524C8A400B50824 /* cpHashSet.h */,
 				F6FE863A1524C8A400B50824 /* cpPolyShape.h */,
 				F6FE863B1524C8A400B50824 /* cpShape.h */,
-				F6FE863C1524C8A400B50824 /* cpSpace.h */,
+				F6DA0E3C15474FAE001435FE /* cpSpace.h */,
 				F6FE863D1524C8A400B50824 /* cpSpaceHash.h */,
 				F6FE863E1524C8A400B50824 /* cpVect.h */,
 				F6FE86271524C8A400B50824 /* constraints */,
@@ -1207,13 +1216,16 @@
 				F6FE84E11524C8A100B50824 /* iTunesArtwork in Resources */,
 				F6FE86891524C8A500B50824 /* grossini_dance_atlas.png in Resources */,
 				F607CE0B1524E3CC00C80014 /* background-hd.png in Resources */,
-				F607CE0C1524E3CC00C80014 /* Ninja-hd.png in Resources */,
 				F6F0679B153F7EBB005FF41A /* scene5atlas.plist in Resources */,
 				F6F0679C153F7EBB005FF41A /* scene5atlas.png in Resources */,
-				F6F067A1153F9170005FF41A /* scene1atlas.plist in Resources */,
-				F6F067A2153F9170005FF41A /* scene1atlas.png in Resources */,
 				52EA618A153F956D00781E15 /* background.png in Resources */,
-				52EA618B153F956D00781E15 /* Ninja.png in Resources */,
+				F6DA0E5B1547B752001435FE /* scene1atlas.plist in Resources */,
+				F6DA0E5C1547B752001435FE /* scene1atlas.png in Resources */,
+				F6DA0E611547B768001435FE /* fixed-ortho-test2.png in Resources */,
+				F6DA0E621547B768001435FE /* meta_tiles.png in Resources */,
+				F6DA0E631547B768001435FE /* Ninja.png in Resources */,
+				F6DA0E641547B768001435FE /* TileMap.tmx in Resources */,
+				F6DA0E661547B902001435FE /* Ninja-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1421,6 +1433,7 @@
 				INFOPLIST_FILE = SwipeNinja/Resources/Info.plist;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "\"SwipeNinja/libs/Chipmunk/include/chipmunk\"";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1438,6 +1451,7 @@
 				INFOPLIST_FILE = SwipeNinja/Resources/Info.plist;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "\"SwipeNinja/libs/Chipmunk/include/chipmunk\"";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

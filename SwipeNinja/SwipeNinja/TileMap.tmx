@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="100" height="100" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="level1" tilewidth="32" tileheight="32" spacing="2" margin="2">
+  <image source="fixed-ortho-test2.png" width="640" height="400"/>
+ </tileset>
+ <tileset firstgid="199" name="meta_tiles" tilewidth="32" tileheight="32" spacing="1" margin="1">
+  <image source="meta_tiles.png" width="67" height="34"/>
+  <tile id="0">
+   <properties>
+    <property name="Collidable" value="True"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Background" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1bENgDAUQ8FQMANDwf7zoBQ0kfLLYCl3klfwaw0AAAAAAAAAAAAAAAAAAAAAAAAA9nJOBgCdTgAwoxEAVHQCgIpOAFDRCSCNXwLS+CUgjV8CoKITQLprGOtoBJDCHwEp/BE7e4qxli8C/nYP+xwWtRedHQWl
+  </data>
+ </layer>
+ <layer name="Meta" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1cEJACAQA0H7b8y2xAJyXwPOQFrIrgUAAAAAAAAAAAAAAAAAAAAAAAAAf9lhAHDpBACJRgAw0QkAJjoBwEQngDZ+CWjjl4A2fgmAiU4AkGgE0MIfAS38EdDAFwGt0j/Zmx12So8J
+  </data>
+ </layer>
+</map>
