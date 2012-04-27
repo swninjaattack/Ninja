@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 University of Miami. All rights reserved.
 //
 #import "CPNinja.h"
+#import "Robot.h"
 #import "GameplayLayer.h"
 #import "CPRevolvePlatform.h"
 #import "CPPivotPlatform.h"
@@ -47,8 +48,10 @@
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"scene1atlas.plist"];
         batchNode = [CCSpriteBatchNode batchNodeWithFile:@"scene1atlas.png"];
         ninja = [[[CPNinja alloc] initWithLocation:ccp(100, 100) space:space groundBody:groundBody] autorelease];
+        robot = [[[Robot alloc] initWithLocation:ccp(400,400) space:space groundBody:groundBody] autorelease];
         [self addChild:batchNode z:0];
         [batchNode addChild:ninja];
+        [batchNode addChild:robot];
         [self createLevel];
         
         //ninjaSprite = [CCSprite spriteWithFile:@"Ninja.png"];

@@ -11,6 +11,7 @@
 #import "cpMouse.h"
 
 @class CPNinja;
+@class Robot;
 
 @interface GameplayLayer : CCLayer {
     double startTime;
@@ -18,6 +19,7 @@
     cpBody *groundBody;
     //cpMouse *mouse;
     CPNinja *ninja;
+    Robot *robot;
     CGSize levelBounds;
     CCSpriteBatchNode *batchNode;
     BOOL platformLocs[100][100];

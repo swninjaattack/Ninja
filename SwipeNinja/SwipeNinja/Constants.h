@@ -17,5 +17,6 @@ typedef enum {
 
 typedef enum {
     kCollisionTypeGround = 0x1,
-    kCollisionTypeNinja
+    kCollisionTypeNinja,
+    kCollisionTypeRobot
 } CollisionType;
