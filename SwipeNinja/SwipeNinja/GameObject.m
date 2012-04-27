@@ -75,7 +75,7 @@
     NSArray *animationFrameNumbers = [animationFrames componentsSeparatedByString:@" , "];
     
     for (NSString *frameNumber in animationFrameNumbers) {
-        NSString *frameName = [NSString stringWithFormat:@"%@%@.ping", animationFramePrefix, frameNumber];
+        NSString *frameName = [NSString stringWithFormat:@"%@%@.png", animationFramePrefix, frameNumber];
         [animationToReturn addFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName]];
     }
     return animationToReturn;

@@ -80,6 +80,24 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     }
 }
 
+#pragma mark -
+
+-(CGRect)adjustedBoundingBox {
+    CGRect ninjaBoundingBox = [self boundingBox];
+    float xOffset;
+    float xCropAmount = ninjaBoundingBox.size.width * 0.5482f;
+    float yCropAmount = ninjaBoundingBox.size.height * 0.095f;
+    if ([self flipX] == NO){
+        xOffset = ninjaBoundingBox.size.width * 0.1566f;
+    }
+    else {
+        xOffset = ninjaBoundingBox.size.width * 0.4217f;
+    }
+    ninjaBoundingBox = 
+    CGRectMake(ninjaBoundingBox.origin.x + xOffset, ninjaBoundingBox.origin.y, ninjaBoundingBox.size.width-xCropAmount, ninjaBoundingBox.size.height - yCropAmount);
+    return ninjaBoundingBox;
+}
+
 
 -(void)updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray *)listOfGameObjects {
     
