@@ -10,6 +10,7 @@
 
 
 @interface Robot : CPSprite{
+    CCAnimation *walkingAnimation;
     cpArray *groundShapes;
     double movingStartTime;
     float accelerationFraction; //not sure if this is allowed?

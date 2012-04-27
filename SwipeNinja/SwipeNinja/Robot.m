@@ -37,6 +37,18 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     cpArrayDeleteObj(robot.groundShapes, groundShape);
 }
 
+
+- (void)initAnimations
+{
+    walkingAnimation = [CCAnimation animation];
+        [walkingAnimation addFrameWithFilename:@"Robot2.png"];           
+        [walkingAnimation addFrameWithFilename:@"Robot3.png"];
+        [walkingAnimation addFrameWithFilename:@"Robot4.png"];
+
+    
+}
+
+
 -(id)initWithLocation:(CGPoint)location space:(cpSpace *)theSpace groundBody:(cpBody *)groundBody {
     if ((self = [super initWithSpriteFrameName:@"Robot1.png"])) {
         CGSize size = CGSizeMake(30, 30);
@@ -48,6 +60,7 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
         cpConstraint *constraint = cpRotaryLimitJointNew(groundBody, body, CC_DEGREES_TO_RADIANS(0), CC_DEGREES_TO_RADIANS(0));
         cpSpaceAddConstraint(space, constraint);
         accelerationFraction = 1;
+        [self initAnimations];
     }
     return self;
 }
@@ -93,7 +106,15 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     if (characterState != kStateWalking && [self numberOfRunningActions] == 0) {
         [self changeState:kStateWalking];
     }
-    if (characterState == kStateWalking) {
+    if (characterState == kStateWalking) {        
+        id robotAnimationAction =
+        [CCAnimate actionWithDuration:0.5f
+                            animation:walkingAnimation
+                 restoreOriginalFrame:YES];                       
+        id repeatRobotAnimation =
+        [CCRepeatForever actionWithAction:robotAnimationAction];  
+        [self runAction:repeatRobotAnimation];
+        
         double curTime = CACurrentMediaTime();
         double timeMoving = curTime - movingStartTime;
         static double TIME_TO_MOVE = 1.5f;
