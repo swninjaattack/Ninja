@@ -10,7 +10,7 @@
 
 
 @interface Robot : CPSprite{
-    CCAnimation *walkingAnimation;
+    CCAnimation *walkingAnim;
     cpArray *groundShapes;
     double movingStartTime;
     float accelerationFraction; //not sure if this is allowed?
@@ -18,7 +18,6 @@
 }
 
 -(id)initWithLocation:(CGPoint)location space:(cpSpace *)theSpace groundBody:(cpBody *)groundBody;
-
 
 
 @property (readonly) cpArray *groundShapes;
