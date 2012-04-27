@@ -54,11 +54,17 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     if (groundShapes->num > 0) {
         jumpStartTime = CACurrentMediaTime();
     }
+    firstTouch = [touch locationInView:[touch view]];
     return TRUE;
 }
 
 -(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-    jumpStartTime = 0;
+    //jumpStartTime = 0;
+    secondTouch = [touch locationInView:[touch view]];
+    if ((secondTouch.y - firstTouch.y) < -10.0f) {
+        shouldJump = NO;
+    } else 
+        shouldJump = YES;
 }
 
 -(void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
@@ -87,7 +93,7 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     }
     
     double timeJumping = CACurrentMediaTime() - jumpStartTime;
-    if (jumpStartTime != 0 && timeJumping < 0.25) {
+    if (jumpStartTime != 0 && shouldJump==YES) {
         newVel.y = jumpFactor*2;
     }
     cpBodySetVel(body, newVel);

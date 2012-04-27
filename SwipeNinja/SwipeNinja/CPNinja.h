@@ -13,6 +13,9 @@
     double jumpStartTime;
     float accelerationFraction;
     float lastFlip;
+    CGPoint firstTouch;
+    CGPoint secondTouch;
+    BOOL shouldJump;
 }
 
 -(id)initWithLocation:(CGPoint)location space:(cpSpace *)theSpace groundBody:(cpBody *)groundBody;
