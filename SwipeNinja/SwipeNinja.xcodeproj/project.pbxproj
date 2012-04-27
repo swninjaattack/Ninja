@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		523A1716154A1A1A0026993D /* Robot.m in Sources */ = {isa = PBXBuildFile; fileRef = 523A1715154A1A1A0026993D /* Robot.m */; };
 		52EA618A153F956D00781E15 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EA6188153F956D00781E15 /* background.png */; };
 		F607CE0B1524E3CC00C80014 /* background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F607CE091524E3CC00C80014 /* background-hd.png */; };
 		F6858CE6153BB4E2003589A5 /* CPNinja.m in Sources */ = {isa = PBXBuildFile; fileRef = F6858CE5153BB4E2003589A5 /* CPNinja.m */; };
@@ -181,6 +182,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		523A1714154A1A1A0026993D /* Robot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Robot.h; sourceTree = "<group>"; };
+		523A1715154A1A1A0026993D /* Robot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Robot.m; sourceTree = "<group>"; };
 		52EA6188153F956D00781E15 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = Resources/background.png; sourceTree = "<group>"; };
 		F607CE091524E3CC00C80014 /* background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-hd.png"; path = "Resources/background-hd.png"; sourceTree = "<group>"; };
 		F6858CE4153BB4E2003589A5 /* CPNinja.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPNinja.h; sourceTree = "<group>"; };
@@ -1098,6 +1101,8 @@
 				F6B396BF1535439D008F9860 /* Chipmunk */,
 				F6858CE4153BB4E2003589A5 /* CPNinja.h */,
 				F6858CE5153BB4E2003589A5 /* CPNinja.m */,
+				523A1714154A1A1A0026993D /* Robot.h */,
+				523A1715154A1A1A0026993D /* Robot.m */,
 				F6FE86931524C9EF00B50824 /* GameCharacter.h */,
 				F6FE86941524C9EF00B50824 /* GameCharacter.m */,
 				F6FE86951524C9EF00B50824 /* GameObject.h */,
@@ -1378,6 +1383,7 @@
 				F6B396BD15354390008F9860 /* CPSpringPlatform.m in Sources */,
 				F6B396BE15354390008F9860 /* CPSprite.m in Sources */,
 				F6858CE6153BB4E2003589A5 /* CPNinja.m in Sources */,
+				523A1716154A1A1A0026993D /* Robot.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
