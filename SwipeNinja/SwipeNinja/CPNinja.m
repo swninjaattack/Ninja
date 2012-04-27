@@ -124,6 +124,9 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     [super updateStateWithDeltaTime:deltaTime andListOfGameObjects:listOfGameObjects];
     float jumpFactor = 200.0;
     CGPoint newVel = body->v;
+    if (characterState == kStateAttacking) {
+        [self changeState:kStateWalking];
+    }
     
     if (groundShapes->num == 0) {
         newVel = ccp(jumpFactor*accelerationFraction, body->v.y);
