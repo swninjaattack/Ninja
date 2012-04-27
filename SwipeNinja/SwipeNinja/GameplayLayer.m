@@ -50,7 +50,7 @@
         ninja = [[[CPNinja alloc] initWithLocation:ccp(100, 100) space:space groundBody:groundBody] autorelease];
         robot = [[[Robot alloc] initWithLocation:ccp(400,200) space:space groundBody:groundBody] autorelease];
         [self addChild:batchNode z:0];
-        [batchNode addChild:ninja];
+        [batchNode addChild:ninja z:kNinjaSpriteZValue tag:kNinjaSpriteTagValue];
         [batchNode addChild:robot];
         [self createLevel];
         
