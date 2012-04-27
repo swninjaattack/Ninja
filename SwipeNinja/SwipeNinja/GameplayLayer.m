@@ -54,6 +54,26 @@
         [batchNode addChild:robot];
         [self createLevel];
         
+        // Animation example with a Sprite (not a CCSpriteBatchNode)
+        CCSprite *animatingRobot = [CCSprite
+                                    spriteWithFile:@"Robot1.png"];
+        //[animatingRobot setPosition:ccp([vikingSprite position].x + 50.0f,
+                                        //[vikingSprite position].y)];
+        [self addChild:animatingRobot];                               
+        
+        CCAnimation *robotAnim = [CCAnimation animation];           
+        [robotAnim addFrameWithFilename:@"Robot2.png"];           
+        [robotAnim addFrameWithFilename:@"Robot3.png"];
+        [robotAnim addFrameWithFilename:@"Robot4.png"];
+        
+        id robotAnimationAction =
+        [CCAnimate actionWithDuration:0.5f
+                            animation:robotAnim
+                 restoreOriginalFrame:YES];                       
+        id repeatRobotAnimation =
+        [CCRepeatForever actionWithAction:robotAnimationAction];  
+        [animatingRobot runAction:repeatRobotAnimation];
+        
         //ninjaSprite = [CCSprite spriteWithFile:@"Ninja.png"];
         //[ninjaSprite setPosition:CGPointMake(screenSize.width/2, 40)];
         //[self addChild:ninjaSprite];
