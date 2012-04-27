@@ -37,9 +37,9 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
 }
 
 -(id)initWithLocation:(CGPoint)location space:(cpSpace *)theSpace groundBody:(cpBody *)groundBody {
-    if ((self = [super initWithSpriteFrameName:@"Ninja.png"])) {
+    if ((self = [super initWithSpriteFrameName:@"Ninja1.png"])) {
         CGSize size = CGSizeMake(30, 30);
-        self.anchorPoint = ccp(0.5, 30/self.contentSize.height);
+        self.anchorPoint = ccp(0.5, 20/self.contentSize.height);
         NSLog(@"%f, %f", self.contentSize.width, self.contentSize.height);
         [self addBoxBodyAndShapeWithLocation:location size:size space:theSpace mass:1.0 e:0.0 u:1.0 collisionType:kCollisionTypeNinja canRotate:FALSE];
         groundShapes = cpArrayNew(0);

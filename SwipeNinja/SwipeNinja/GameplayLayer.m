@@ -48,7 +48,7 @@
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"scene1atlas.plist"];
         batchNode = [CCSpriteBatchNode batchNodeWithFile:@"scene1atlas.png"];
         ninja = [[[CPNinja alloc] initWithLocation:ccp(100, 100) space:space groundBody:groundBody] autorelease];
-        robot = [[[Robot alloc] initWithLocation:ccp(400,400) space:space groundBody:groundBody] autorelease];
+        robot = [[[Robot alloc] initWithLocation:ccp(400,200) space:space groundBody:groundBody] autorelease];
         [self addChild:batchNode z:0];
         [batchNode addChild:ninja];
         [batchNode addChild:robot];
@@ -250,9 +250,9 @@
         0,
         0,
         0,                          //set this int to draw or not
-        4.0f,
+        0.0f, //4.0 makes the red boxes
         0.0f,
-        1.5f,
+        0.0f,//was 1.5
     };
     drawSpace(space, &options);
 }
