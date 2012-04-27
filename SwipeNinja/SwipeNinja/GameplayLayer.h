@@ -23,6 +23,7 @@
     CGSize levelBounds;
     CCSpriteBatchNode *batchNode;
     BOOL platformLocs[100][100];
+    BOOL isRobotDead;
     
     CCTMXLayer *_meta;
     CCTMXLayer *_foreground;

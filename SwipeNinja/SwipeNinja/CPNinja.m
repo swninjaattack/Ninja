@@ -106,7 +106,7 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     float xOffset;
     float xCropAmount = ninjaBoundingBox.size.width * 0.5482f;
     float yCropAmount = ninjaBoundingBox.size.height * 0.095f;
-    if ([self flipX] == NO){
+    if ([self flipX] == YES){
         xOffset = ninjaBoundingBox.size.width * 0.1566f;
     }
     else {

@@ -18,7 +18,7 @@
 }
 
 -(id)initWithLocation:(CGPoint)location space:(cpSpace *)theSpace groundBody:(cpBody *)groundBody;
-
+- (void) removeBody;
 
 @property (readonly) cpArray *groundShapes;
 
