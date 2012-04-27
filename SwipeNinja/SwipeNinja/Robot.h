@@ -8,9 +8,9 @@
 
 #import "CPSprite.h"
 
-
 @interface Robot : CPSprite{
     CCAnimation *walkingAnim;
+    CPSprite *ninja;
     cpArray *groundShapes;
     double movingStartTime;
     float accelerationFraction; //not sure if this is allowed?

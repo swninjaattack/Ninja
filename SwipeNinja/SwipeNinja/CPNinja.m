@@ -62,6 +62,7 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     //jumpStartTime = 0;
     secondTouch = [touch locationInView:[touch view]];
     if ((secondTouch.y - firstTouch.y) < -10.0f || (secondTouch.y - firstTouch.y) > 10.0f) {
+        [self changeState:kStateAttacking];
         shouldJump = NO;
     } else 
         shouldJump = YES;
@@ -80,7 +81,25 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     }
 }
 
-#pragma mark -
+-(void) changeState:(CharacterStates)newState{
+    [self stopAllActions];
+    id action = nil;
+    [self setCharacterState:newState];
+    switch (newState) {
+        case kStateIdle:
+            [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Ninja1.png"]];
+            break;
+        case kStateAttacking:
+            NSLog(@"ATTACCCKKKINNGGG!!! ");
+            break;
+        default:
+            break;
+    }
+    if (action != nil) {
+        [self runAction:action];
+    }
+}
+
 
 -(CGRect)adjustedBoundingBox {
     CGRect ninjaBoundingBox = [self boundingBox];

@@ -114,6 +114,17 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
 
 - (void) updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray *)listOfGameObjects {
     [super updateStateWithDeltaTime:deltaTime andListOfGameObjects:listOfGameObjects];
+    if (characterState == kStateDead)
+        return;
+    ninja = (CPSprite *) [[self parent] getChildByTag:kNinjaSpriteTagValue];
+    CGRect ninjaBoundingBox = [ninja adjustedBoundingBox];
+    CharacterStates ninjaState = [ninja characterState];
+    if ((ninjaState == kStateAttacking) && (CGRectIntersectsRect([self adjustedBoundingBox], ninjaBoundingBox))){
+        if(characterState != kStateTakingDamage) {
+            [self changeState:kStateTakingDamage];
+            return;
+        }
+    }
     if((characterState == kStateTakingDamage) && ([self numberOfRunningActions] > 0 )) {
         return;
     }
