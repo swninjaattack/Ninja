@@ -61,7 +61,7 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
 -(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
     //jumpStartTime = 0;
     secondTouch = [touch locationInView:[touch view]];
-    if ((secondTouch.y - firstTouch.y) < -10.0f) {
+    if ((secondTouch.y - firstTouch.y) < -10.0f || (secondTouch.y - firstTouch.y) > 10.0f) {
         shouldJump = NO;
     } else 
         shouldJump = YES;
@@ -103,7 +103,7 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     
     CGPoint oldPosition = self.position;
     [super updateStateWithDeltaTime:deltaTime andListOfGameObjects:listOfGameObjects];
-    float jumpFactor = 150.0;
+    float jumpFactor = 200.0;
     CGPoint newVel = body->v;
     
     if (groundShapes->num == 0) {
@@ -113,6 +113,8 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     double timeJumping = CACurrentMediaTime() - jumpStartTime;
     if (jumpStartTime != 0 && shouldJump==YES) {
         newVel.y = jumpFactor*2;
+        shouldJump = NO;
+        jumpStartTime = 0;
     }
     cpBodySetVel(body, newVel);
     
