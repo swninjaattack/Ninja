@@ -6,8 +6,8 @@
 //  Copyright 2012 University of Miami. All rights reserved.
 //
 
-#define kVikingSpriteZValue 100
-#define kVikingSpriteTagValue 0
+#define kNinjaSpriteZValue 100
+#define kNinjaSpriteTagValue 0
 
 typedef enum {
     kNoSceneUninitialized = 0,
