@@ -230,9 +230,9 @@
         0,
         0,
         0,                          //set this int to draw or not
-        4.0f,
+        0.0f, //4.0 makes the red boxes
         0.0f,
-        1.5f,
+        0.0f,//was 1.5
     };
     drawSpace(space, &options);
 }
