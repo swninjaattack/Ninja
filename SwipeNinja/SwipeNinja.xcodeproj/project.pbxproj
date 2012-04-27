@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		523A1716154A1A1A0026993D /* Robot.m in Sources */ = {isa = PBXBuildFile; fileRef = 523A1715154A1A1A0026993D /* Robot.m */; };
+		523A1719154A4FC70026993D /* charanims.plist in Resources */ = {isa = PBXBuildFile; fileRef = 523A1718154A4FC70026993D /* charanims.plist */; };
 		52EA618A153F956D00781E15 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EA6188153F956D00781E15 /* background.png */; };
 		F607CE0B1524E3CC00C80014 /* background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F607CE091524E3CC00C80014 /* background-hd.png */; };
 		F6858CE6153BB4E2003589A5 /* CPNinja.m in Sources */ = {isa = PBXBuildFile; fileRef = F6858CE5153BB4E2003589A5 /* CPNinja.m */; };
@@ -184,6 +185,7 @@
 /* Begin PBXFileReference section */
 		523A1714154A1A1A0026993D /* Robot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Robot.h; sourceTree = "<group>"; };
 		523A1715154A1A1A0026993D /* Robot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Robot.m; sourceTree = "<group>"; };
+		523A1718154A4FC70026993D /* charanims.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = charanims.plist; sourceTree = "<group>"; };
 		52EA6188153F956D00781E15 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = Resources/background.png; sourceTree = "<group>"; };
 		F607CE091524E3CC00C80014 /* background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-hd.png"; path = "Resources/background-hd.png"; sourceTree = "<group>"; };
 		F6858CE4153BB4E2003589A5 /* CPNinja.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPNinja.h; sourceTree = "<group>"; };
@@ -582,6 +584,7 @@
 			isa = PBXGroup;
 			children = (
 				F6DA0E591547B752001435FE /* scene1atlas.plist */,
+				523A1718154A4FC70026993D /* charanims.plist */,
 				F6DA0E5A1547B752001435FE /* scene1atlas.png */,
 				F6F0679A153F7EBB005FF41A /* scene5atlas.png */,
 				F6F06799153F7EBB005FF41A /* scene5atlas.plist */,
@@ -1231,6 +1234,7 @@
 				F6DA0E631547B768001435FE /* Ninja.png in Resources */,
 				F6DA0E641547B768001435FE /* TileMap.tmx in Resources */,
 				F6DA0E661547B902001435FE /* Ninja-hd.png in Resources */,
+				523A1719154A4FC70026993D /* charanims.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

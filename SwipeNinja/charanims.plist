@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>New item</key>
+	<string></string>
+	<key>Ninja.png</key>
+	<dict>
+		<key>frame</key>
+		<string>{{46,386},{58,67}}</string>
+		<key>offset</key>
+		<string>{-9,2}</string>
+		<key>rotated</key>
+		<false/>
+		<key>sourceColorRect</key>
+		<string>{{6,8},{58,67}}</string>
+		<key>sourceSize</key>
+		<string>{88,87}</string>
+	</dict>
+</dict>
+</plist>
