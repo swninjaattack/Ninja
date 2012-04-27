@@ -38,9 +38,9 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
 }
 
 -(id)initWithLocation:(CGPoint)location space:(cpSpace *)theSpace groundBody:(cpBody *)groundBody {
-    if ((self = [super initWithSpriteFrameName:@"RobotSingle.png"])) {
+    if ((self = [super initWithSpriteFrameName:@"Robot1.png"])) {
         CGSize size = CGSizeMake(30, 30);
-        self.anchorPoint = ccp(0.5, 30/self.contentSize.height);
+        self.anchorPoint = ccp(0.5, 20/self.contentSize.height);
         NSLog(@"%f, %f", self.contentSize.width, self.contentSize.height);
         [self addBoxBodyAndShapeWithLocation:location size:size space:theSpace mass:1.0 e:0.0 u:1.0 collisionType:kCollisionTypeRobot canRotate:FALSE];
         groundShapes = cpArrayNew(0);
@@ -52,7 +52,36 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     return self;
 }
 
+- (void) changeState:(CharacterStates)newState {
+    if (characterState == newState ) {
+        return;
+    }
+    [self stopAllActions];
+    id action = nil;
+    [self setCharacterState:newState];
+    switch(newState){
+            case kStateWalking:
+            movingStartTime = CACurrentMediaTime();
+            break;
+            case kStateTakingDamage:
+            action = [CCBlink actionWithDuration:1.0 blinks:3.0];
+            break;
+            case kStateRotating:
+            {
+                CCFlipX *flip = [CCFlipX actionWithFlipX:!self.flipX];
+                action = [CCSequence actions:flip, nil];
+                break;
+            }
+            default:
+            break;
+    }
+    if (action!=nil) {
+        [self runAction:action];
+    }
+}
+
 - (void) updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray *)listOfGameObjects {
+    [super updateStateWithDeltaTime:deltaTime andListOfGameObjects:listOfGameObjects];
     if((characterState == kStateTakingDamage) && ([self numberOfRunningActions] > 0 )) {
         return;
     }
@@ -67,13 +96,9 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     if (characterState == kStateWalking) {
         double curTime = CACurrentMediaTime();
         double timeMoving = curTime - movingStartTime;
-        static double TIME_TO_MOVE = 1.0f;
+        static double TIME_TO_MOVE = 1.5f;
         float margin = 20;
-        CGPoint oldPosition = self.position;
         CGPoint newVel = body->v;
-        if (groundShapes->num == 0) {
-            newVel = ccp(accelerationFraction, body->v.y);
-        }
         if (body->p.x < margin) {
             cpBodySetPos(body, ccp(margin, body->p.y));
         }
@@ -83,19 +108,17 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
         }
         if(timeMoving > TIME_TO_MOVE) {
             accelerationFraction *= -1;
-            timeMoving = 0;
+            movingStartTime = CACurrentMediaTime();
+            [self changeState:kStateRotating];
         }
-        if(ABS(accelerationFraction) > 0.05) { 
-            double diff = CACurrentMediaTime() - lastFlip;        
-            if (diff > 0.1) {
-                lastFlip = CACurrentMediaTime();
-                if (oldPosition.x > self.position.x) {
-                    self.flipX = YES;
-                } else {
-                    self.flipX = NO;
-                }
-            }
+        if (groundShapes->num > 0) {
+                float maxSpeed = 40.0f;
+                newVel = ccp(-maxSpeed*accelerationFraction, 0);
+                cpBodyActivate(body);
+        } else {
+            shape->surface_v = cpvzero;
         }
+        cpBodySetVel(body, newVel);
     }
 }
 

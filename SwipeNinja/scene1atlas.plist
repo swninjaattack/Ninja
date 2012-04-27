@@ -7,20 +7,46 @@
             <key>Ninja.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,194},{58,67}}</string>
+                <string>{{46,386},{58,67}}</string>
                 <key>offset</key>
                 <string>{-9,2}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{6,8},{58,67}}</string>
                 <key>sourceSize</key>
                 <string>{88,87}</string>
             </dict>
+            <key>Ninja1.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{106,386},{58,64}}</string>
+                <key>offset</key>
+                <string>{-8,-12}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{7,24},{58,64}}</string>
+                <key>sourceSize</key>
+                <string>{88,88}</string>
+            </dict>
+            <key>Robot1.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,386},{42,68}}</string>
+                <key>offset</key>
+                <string>{-6,-10}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{17,20},{42,68}}</string>
+                <key>sourceSize</key>
+                <string>{88,88}</string>
+            </dict>
             <key>RobotSingle.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{71,194},{38,68}}</string>
+                <string>{{2,456},{38,68}}</string>
                 <key>offset</key>
                 <string>{-7,2}</string>
                 <key>rotated</key>
@@ -46,7 +72,7 @@
             <key>an1_anim2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{112,2},{108,190}}</string>
+                <string>{{2,194},{108,190}}</string>
                 <key>offset</key>
                 <string>{-3,-5}</string>
                 <key>rotated</key>
@@ -64,9 +90,9 @@
             <key>realTextureFileName</key>
             <string>scene1atlas.png</string>
             <key>size</key>
-            <string>{256,256}</string>
+            <string>{512,512}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:b46e19d799295892b800753544d04cd4$</string>
+            <string>$TexturePacker:SmartUpdate:3b0a7c52df9a14cb043c9a3ea94a10a1$</string>
             <key>textureFileName</key>
             <string>scene1atlas.png</string>
         </dict>
