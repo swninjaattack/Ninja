@@ -40,12 +40,14 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
 
 - (void)initAnimations
 {
-    walkingAnimation = [CCAnimation animation];
-        [walkingAnimation addFrameWithFilename:@"Robot2.png"];           
-        [walkingAnimation addFrameWithFilename:@"Robot3.png"];
-        [walkingAnimation addFrameWithFilename:@"Robot4.png"];
-
-    
+    walkingAnimation = [self loadPlistForAnimationWithName:@"walkAnim" andClassName:NSStringFromClass([self class])];
+    [[CCAnimationCache sharedAnimationCache] addAnimation:walkingAnimation name:@"walkAnim"];
+//    walkingAnimation = [CCAnimation animation];
+//        [walkingAnimation addFrameWithFilename:@"Robot2.png"];           
+//        [walkingAnimation addFrameWithFilename:@"Robot3.png"];
+//        [walkingAnimation addFrameWithFilename:@"Robot4.png"];
+//
+//    
 }
 
 
@@ -106,14 +108,15 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     if (characterState != kStateWalking && [self numberOfRunningActions] == 0) {
         [self changeState:kStateWalking];
     }
-    if (characterState == kStateWalking) {        
-        id robotAnimationAction =
-        [CCAnimate actionWithDuration:0.5f
-                            animation:walkingAnimation
-                 restoreOriginalFrame:YES];                       
-        id repeatRobotAnimation =
-        [CCRepeatForever actionWithAction:robotAnimationAction];  
-        [self runAction:repeatRobotAnimation];
+    if (characterState == kStateWalking) { 
+        [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:walkingAnimation restoreOriginalFrame:YES]times:3];
+//        id robotAnimationAction =
+//        [CCAnimate actionWithDuration:0.5f
+//                            animation:walkingAnimation
+//                 restoreOriginalFrame:YES];                       
+//        id repeatRobotAnimation =
+//        [CCRepeatForever actionWithAction:robotAnimationAction];  
+//        [self runAction:repeatRobotAnimation];
         
         double curTime = CACurrentMediaTime();
         double timeMoving = curTime - movingStartTime;

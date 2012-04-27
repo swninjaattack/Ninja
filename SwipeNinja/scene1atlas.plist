@@ -7,11 +7,11 @@
             <key>Ninja.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{46,386},{58,67}}</string>
+                <string>{{142,2},{58,67}}</string>
                 <key>offset</key>
                 <string>{-9,2}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{6,8},{58,67}}</string>
                 <key>sourceSize</key>
@@ -20,11 +20,11 @@
             <key>Ninja1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{106,386},{58,64}}</string>
+                <string>{{211,2},{58,64}}</string>
                 <key>offset</key>
                 <string>{-8,-12}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{7,24},{58,64}}</string>
                 <key>sourceSize</key>
@@ -33,24 +33,63 @@
             <key>Robot1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,386},{42,68}}</string>
+                <string>{{2,458},{42,68}}</string>
+                <key>offset</key>
+                <string>{-6,-10}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{17,20},{42,68}}</string>
+                <key>sourceSize</key>
+                <string>{88,88}</string>
+            </dict>
+            <key>Robot2.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{36,386},{40,68}}</string>
                 <key>offset</key>
                 <string>{-6,-10}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{17,20},{42,68}}</string>
+                <string>{{18,20},{40,68}}</string>
+                <key>sourceSize</key>
+                <string>{88,88}</string>
+            </dict>
+            <key>Robot3.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,386},{32,70}}</string>
+                <key>offset</key>
+                <string>{-2,-9}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{26,18},{32,70}}</string>
+                <key>sourceSize</key>
+                <string>{88,88}</string>
+            </dict>
+            <key>Robot4.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{72,456},{38,68}}</string>
+                <key>offset</key>
+                <string>{2,-10}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{27,20},{38,68}}</string>
                 <key>sourceSize</key>
                 <string>{88,88}</string>
             </dict>
             <key>RobotSingle.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,456},{38,68}}</string>
+                <string>{{78,386},{38,68}}</string>
                 <key>offset</key>
                 <string>{-7,2}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{46,36},{38,68}}</string>
                 <key>sourceSize</key>
@@ -92,7 +131,7 @@
             <key>size</key>
             <string>{512,512}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:a2785c40ad6236b747d8cbe84dc24437$</string>
+            <string>$TexturePacker:SmartUpdate:25fd46adee7fcf848f39239a08ac3c9c$</string>
             <key>textureFileName</key>
             <string>scene1atlas.png</string>
         </dict>

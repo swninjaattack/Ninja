@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Robot2.png</key>
+	<dict>
+		<key>frame</key>
+		<string>{{36,386},{40,68}}</string>
+		<key>offset</key>
+		<string>{-6,-10}</string>
+		<key>rotated</key>
+		<false/>
+		<key>sourceColorRect</key>
+		<string>{{18,20},{40,68}}</string>
+		<key>sourceSize</key>
+		<string>{88,88}</string>
+	</dict>
+	<key>Robot3.png</key>
+	<dict>
+		<key>frame</key>
+		<string>{{2,386},{32,70}}</string>
+		<key>offset</key>
+		<string>{-2,-9}</string>
+		<key>rotated</key>
+		<false/>
+		<key>sourceColorRect</key>
+		<string>{{26,18},{32,70}}</string>
+		<key>sourceSize</key>
+		<string>{88,88}</string>
+	</dict>
+	<key>Robot4.png</key>
+	<dict>
+		<key>frame</key>
+		<string>{{72,456},{38,68}}</string>
+		<key>offset</key>
+		<string>{2,-10}</string>
+		<key>rotated</key>
+		<true/>
+		<key>sourceColorRect</key>
+		<string>{{27,20},{38,68}}</string>
+		<key>sourceSize</key>
+		<string>{88,88}</string>
+	</dict>
+</dict>
+</plist>
