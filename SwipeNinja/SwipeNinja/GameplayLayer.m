@@ -26,6 +26,7 @@
 -(id)init {
     self = [super init];
     if (self != nil) {
+        isRobotDead = NO;
         [[CCDirector sharedDirector] enableRetinaDisplay:YES];
         self.tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"TileMap.tmx"];
         self.background = [_tileMap layerNamed:@"Background"];
@@ -193,6 +194,15 @@
         timeAccumulator = UPDATE_INTERVAL;
     }    
     
+    
+    if (isRobotDead != YES) {
+        if ([robot characterState] == kStateDead) {
+            [batchNode removeChild:robot cleanup:YES];
+            isRobotDead = YES;
+            [robot removeBody];
+        }
+    }
+    
     while (timeAccumulator >= UPDATE_INTERVAL) {        
         timeAccumulator -= UPDATE_INTERVAL;        
         cpSpaceStep(space, UPDATE_INTERVAL);
@@ -230,9 +240,9 @@
         0,
         0,
         0,                          //set this int to draw or not
-        0.0f, //4.0 makes the red boxes
+        0.0f,   //was 4.0 makes the red boxes
         0.0f,
-        0.0f,//was 1.5
+        0.0f,   //was 1.5
     };
     drawSpace(space, &options);
 }

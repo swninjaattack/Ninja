@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SwipeNinja/GameplayLayer.m"
-         timestampString = "357082324.109161"
+         timestampString = "357244966.094069"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "172"
-         endingLineNumber = "172"
+         startingLineNumber = "173"
+         endingLineNumber = "173"
          landmarkName = "-followPlayer:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SwipeNinja/GameplayLayer.m"
-         timestampString = "357082324.109161"
+         timestampString = "357244966.094069"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "126"
-         endingLineNumber = "126"
+         startingLineNumber = "127"
+         endingLineNumber = "127"
          landmarkName = "-createLevel"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SwipeNinja/GameplayLayer.m"
-         timestampString = "357082324.109161"
+         timestampString = "357244966.094069"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "115"
-         endingLineNumber = "115"
+         startingLineNumber = "116"
+         endingLineNumber = "116"
          landmarkName = "-createLevel"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,12 +86,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SwipeNinja/GameplayLayer.m"
-         timestampString = "357082324.109161"
+         timestampString = "357244966.094069"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "121"
-         endingLineNumber = "121"
+         startingLineNumber = "122"
+         endingLineNumber = "122"
          landmarkName = "-createLevel"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SwipeNinja/Robot.m"
+         timestampString = "357245940.997588"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "120"
+         endingLineNumber = "120"
+         landmarkName = "-updateStateWithDeltaTime:andListOfGameObjects:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

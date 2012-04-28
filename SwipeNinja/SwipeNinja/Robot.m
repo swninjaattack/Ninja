@@ -87,25 +87,25 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     [self setCharacterState:newState];
     switch(newState){
             case kStateWalking:
-            [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Robot1.png"]];
+            //[self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Robot1.png"]];
             movingStartTime = CACurrentMediaTime();
             //CURRENT VERSION
             action = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkingAnim restoreOriginalFrame:NO]];
             break;
             case kStateTakingDamage:
-            characterHealth -= 50.0f;
-            if (characterHealth <=0.0f){
-                [self changeState:kStateDead];
-            }
-            else {
-                action = [CCBlink actionWithDuration:1.0 blinks:3.0];
-            }
-
+                characterHealth -= 50.0f;
+                if (characterHealth <=0.0f){
+                    [self changeState:kStateDead];
+                }
+                else {
+                    action = [CCBlink actionWithDuration:1.0 blinks:3.0];
+                }
             break;
             case kStateRotating:
             {
                 CCFlipX *flip = [CCFlipX actionWithFlipX:!self.flipX];
                 action = [CCSequence actions:flip, nil];
+                [self changeState:kStateWalking];
                 break;
             }
             case kStateDead:
@@ -116,6 +116,11 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     if (action!=nil) {
         [self runAction:action];
     }
+}
+
+- (void) removeBody {
+    cpSpaceRemoveBody(space, body);
+    cpSpaceRemoveShape(space, shape);
 }
 
 - (void) updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray *)listOfGameObjects {
