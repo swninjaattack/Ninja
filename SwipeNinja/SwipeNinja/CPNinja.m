@@ -58,7 +58,7 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     for (int i=1; i<=4; ++i) {
         [attackFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"NinjaAttack%d.png", i]]];
     }
-    self.attackAnim = [CCAnimation animationWithFrames:attackFrames delay:0.1f];
+    self.attackAnim = [CCAnimation animationWithFrames:attackFrames delay:0.05f];
     
     NSMutableArray *walkFrames = [[[NSMutableArray alloc] initWithCapacity:4] retain];
     for (int i=1; i<=4; ++i) {
@@ -79,11 +79,12 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     //jumpStartTime = 0;
     secondTouch = [touch locationInView:[touch view]];
     if ((secondTouch.y - firstTouch.y) < -10.0f || (secondTouch.y - firstTouch.y) > 10.0f) {
-        [self changeState:kStateAttacking];
+        if ([self characterState] != kStateAttacking) {
+            [self changeState:kStateAttacking];
+        }
         shouldJump = NO;
     } else {
         shouldJump = YES;
-        [self changeState:kStateJumping];
     }
         
 }
@@ -158,13 +159,7 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
         newVel = ccp(jumpFactor*accelerationFraction, body->v.y);
     }
     
-    double timeJumping = CACurrentMediaTime() - jumpStartTime;
-    if (jumpStartTime != 0 && shouldJump==YES) {
-        newVel.y = jumpFactor*2;
-        shouldJump = NO;
-        jumpStartTime = 0;
-    }
-    cpBodySetVel(body, newVel);
+
     
     if (groundShapes->num > 0) {
         if (ABS(accelerationFraction) < 0.05) {
@@ -174,10 +169,22 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
             float maxSpeed = 200.0f;
             shape->surface_v = ccp(-maxSpeed*accelerationFraction, 0);
             cpBodyActivate(body);
+            if ([self numberOfRunningActions] ==0) {
+                [self changeState:kStateWalking];
+            }
         }
     } else {
         shape->surface_v = cpvzero;
     }
+    
+    double timeJumping = CACurrentMediaTime() - jumpStartTime;
+    if (jumpStartTime != 0 && shouldJump==YES) {
+        [self changeState:kStateJumping];
+        newVel.y = jumpFactor*2;
+        shouldJump = NO;
+        jumpStartTime = 0;
+    }
+    cpBodySetVel(body, newVel);
     
     float margin = 20;
     CGSize winSize = [CCDirector sharedDirector].winSize;
