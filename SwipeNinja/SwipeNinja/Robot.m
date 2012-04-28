@@ -11,6 +11,7 @@
 @implementation Robot
 
 @synthesize groundShapes;
+@synthesize walkingAnim;
 
 static cpBool begin(cpArbiter *arb, cpSpace *space, void *ignore) {
     CP_ARBITER_GET_SHAPES(arb, robotShape, groundShape);
@@ -39,6 +40,11 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
 
 - (void)initAnimations
 {
+    NSMutableArray *walkFrames = [[[NSMutableArray alloc] initWithCapacity:4] retain];
+    for (int i=1; i<=4; ++i) {
+        [walkFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"Robot%d.png", i]]];
+    }
+    self.walkingAnim = [CCAnimation animationWithFrames:walkFrames delay:0.25f];
                                //CURRENT VERSION
 //    walkingAnim = [[self loadPlistForAnimationWithName:@"walkingAnim" andClassName:NSStringFromClass([self class])] retain];
 //    [[CCAnimationCache sharedAnimationCache] addAnimation:walkingAnim name:@"walkingAnim"];
@@ -84,7 +90,7 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
             [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Robot1.png"]];
             movingStartTime = CACurrentMediaTime();
             //CURRENT VERSION
-//            action = [CCAnimate actionWithAnimation:walkingAnim restoreOriginalFrame:NO];
+            action = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkingAnim restoreOriginalFrame:NO]];
             break;
             case kStateTakingDamage:
             characterHealth -= 50.0f;

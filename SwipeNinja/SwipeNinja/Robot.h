@@ -21,5 +21,6 @@
 
 
 @property (readonly) cpArray *groundShapes;
+@property (nonatomic, retain) CCAnimation *walkingAnim;
 
 @end
