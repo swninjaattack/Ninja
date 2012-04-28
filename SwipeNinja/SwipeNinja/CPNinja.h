@@ -10,6 +10,9 @@
 
 @interface CPNinja : CPSprite {
     cpArray *groundShapes;
+    CCAnimation *attackAnim;
+    CCAnimation *walkingAnim;
+    CPSprite *robot;
     double jumpStartTime;
     float accelerationFraction;
     float lastFlip;
@@ -24,5 +27,7 @@
 -(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event;
 
 @property (readonly) cpArray *groundShapes;
+@property (nonatomic, retain) CCAnimation *attackAnim;
+@property (nonatomic, retain) CCAnimation *walkingAnim;
 
 @end

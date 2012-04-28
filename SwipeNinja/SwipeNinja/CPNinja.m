@@ -11,6 +11,8 @@
 @implementation CPNinja
 
 @synthesize groundShapes;
+@synthesize attackAnim;
+@synthesize walkingAnim;
 
 static cpBool begin(cpArbiter *arb, cpSpace *space, void *ignore) {
     CP_ARBITER_GET_SHAPES(arb, ninjaShape, groundShape);
@@ -46,8 +48,23 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
         cpSpaceAddCollisionHandler(space, kCollisionTypeNinja, kCollisionTypeGround, begin, preSolve, NULL, separate, NULL);
         cpConstraint *constraint = cpRotaryLimitJointNew(groundBody, body, CC_DEGREES_TO_RADIANS(0), CC_DEGREES_TO_RADIANS(0));
         cpSpaceAddConstraint(space, constraint);
+        [self initAnimations];
     }
     return self;
+}
+
+-(void)initAnimations{
+    NSMutableArray *attackFrames = [[[NSMutableArray alloc] initWithCapacity:4] retain];
+    for (int i=1; i<=4; ++i) {
+        [attackFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"NinjaAttack%d.png", i]]];
+    }
+    self.attackAnim = [CCAnimation animationWithFrames:attackFrames delay:0.1f];
+    
+    NSMutableArray *walkFrames = [[[NSMutableArray alloc] initWithCapacity:4] retain];
+    for (int i=1; i<=4; ++i) {
+        [walkFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"NinjaWalking%d.png", i]]];
+    }
+    self.walkingAnim = [CCAnimation animationWithFrames:walkFrames delay:0.25f];
 }
 
 -(BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
@@ -64,8 +81,11 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     if ((secondTouch.y - firstTouch.y) < -10.0f || (secondTouch.y - firstTouch.y) > 10.0f) {
         [self changeState:kStateAttacking];
         shouldJump = NO;
-    } else 
+    } else {
         shouldJump = YES;
+        [self changeState:kStateJumping];
+    }
+        
 }
 
 -(void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
@@ -86,12 +106,18 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     id action = nil;
     [self setCharacterState:newState];
     switch (newState) {
+        case kStateWalking:
+            action =  [CCAnimate actionWithAnimation:walkingAnim restoreOriginalFrame:NO];
+            break;
         case kStateIdle:
             [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Ninja1.png"]];
             break;
         case kStateAttacking:
+            action = [CCAnimate actionWithAnimation:attackAnim restoreOriginalFrame:YES];
             NSLog(@"ATTACCCKKKINNGGG!!! ");
             break;
+        case kStateJumping:
+            NSLog(@"Jump");
         default:
             break;
     }
@@ -124,8 +150,8 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     [super updateStateWithDeltaTime:deltaTime andListOfGameObjects:listOfGameObjects];
     float jumpFactor = 200.0;
     CGPoint newVel = body->v;
-    if (characterState == kStateAttacking) {
-        [self changeState:kStateWalking];
+    if (characterState == kStateAttacking && [self numberOfRunningActions] == 0) {
+        [self changeState:kStateIdle];
     }
     
     if (groundShapes->num == 0) {
