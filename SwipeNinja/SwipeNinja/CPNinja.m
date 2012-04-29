@@ -129,7 +129,7 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
             action =  [CCAnimate actionWithAnimation:walkingAnim restoreOriginalFrame:NO];
             break;
         case kStateTakingDamage:
-            characterHealth -= 25;
+            characterHealth -= 50;
             action = [CCBlink actionWithDuration:1.0 blinks:3.0];
             if (characterHealth <=0) {
                 [self changeState:kStateDead];
