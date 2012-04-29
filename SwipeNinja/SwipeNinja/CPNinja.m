@@ -45,6 +45,7 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
         NSLog(@"%f, %f", self.contentSize.width, self.contentSize.height);
         [self addBoxBodyAndShapeWithLocation:location size:size space:theSpace mass:1.0 e:0.0 u:1.0 collisionType:kCollisionTypeNinja canRotate:FALSE];
         groundShapes = cpArrayNew(0);
+        characterHealth = 100;
         cpSpaceAddCollisionHandler(space, kCollisionTypeNinja, kCollisionTypeGround, begin, preSolve, NULL, separate, NULL);
         cpConstraint *constraint = cpRotaryLimitJointNew(groundBody, body, CC_DEGREES_TO_RADIANS(0), CC_DEGREES_TO_RADIANS(0));
         cpSpaceAddConstraint(space, constraint);
@@ -110,6 +111,12 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
         case kStateWalking:
             action =  [CCAnimate actionWithAnimation:walkingAnim restoreOriginalFrame:NO];
             break;
+        case kStateTakingDamage:
+            characterHealth -= 25;
+            action = [CCBlink actionWithDuration:1.0 blinks:3.0];
+            if (characterHealth <=0) {
+                [self changeState:kStateDead];
+            }
         case kStateIdle:
             [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Ninja1.png"]];
             break;
