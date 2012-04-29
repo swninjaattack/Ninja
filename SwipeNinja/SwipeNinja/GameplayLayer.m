@@ -8,10 +8,6 @@
 #import "CPNinja.h"
 #import "Robot.h"
 #import "GameplayLayer.h"
-#import "CPRevolvePlatform.h"
-#import "CPPivotPlatform.h"
-#import "CPSpringPlatform.h"
-#import "CPNormalPlatform.h"
 #import "GameManager.h"
 #import "Constants.h"
 #import "DebugNode.h"
@@ -28,7 +24,7 @@
     if (self != nil) {
         isRobotDead = NO;
         [[CCDirector sharedDirector] enableRetinaDisplay:YES];
-        self.tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"TileMap.tmx"];
+        self.tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"SwipeNinjaLevelOne.tmx"];
         self.background = [_tileMap layerNamed:@"Background"];
         [self addChild:_tileMap z:-1];
         self.meta = [_tileMap layerNamed:@"Meta"];
@@ -114,9 +110,9 @@
 //    [self createBoxAtLocation:ccp(winSize.width * 0.5, winSize.height * 0.15)];
     
     CGPoint currentLoc;
-    int span = 0;
+    float span = 0;
     
-    for (int height = 0; height < _tileMap.mapSize.height - 1; ++height) { 
+    for (int height = 0; height < _tileMap.mapSize.height; ++height) { 
         for (int width = 0; width < _tileMap.mapSize.width; ++width) {
             currentLoc.x = width;
             currentLoc.y = height;
@@ -133,8 +129,14 @@
                 }
             } else {
                 if (span > 0) {
+                    NSLog(@"span: %f", span);
+                    NSLog(@"Location: %f, %f", currentLoc.x, currentLoc.y);
+                    if (currentLoc.x == 0) {
+                        currentLoc.x = 99;
+                        currentLoc.y -= 1;
+                    }
                     CGPoint tempLoc = currentLoc;
-                    tempLoc.x = tempLoc.x - span/2;
+                    tempLoc.x = tempLoc.x - span/2.0 -1;
                     [self createBoxAtLocation:[self cocosCoordForTileCoord:tempLoc] withWidth:span];
                     span = 0;
                 }
@@ -239,7 +241,7 @@
     drawSpaceOptions options = {
         0,
         0,
-        0,                          //set this int to draw or not
+        1,                          //set this int to draw or not
         0.0f,   //was 4.0 makes the red boxes
         0.0f,
         0.0f,   //was 1.5
