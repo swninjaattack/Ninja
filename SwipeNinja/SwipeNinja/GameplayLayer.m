@@ -168,21 +168,39 @@
 }
 
 - (void)followPlayer:(ccTime)dt {
-    float fixedPositionX = [CCDirector sharedDirector].winSize.width/4;
-    float fixedPositionY = [CCDirector sharedDirector].winSize.height/4;
-    float newX = fixedPositionX - ninja.position.x;
-    float newY = fixedPositionY - ninja.position.y;
-
-    float groundMaxX = _tileMap.mapSize.width * _tileMap.tileSize.width;
-    float groundMaxY = _tileMap.mapSize.height * _tileMap.tileSize.height;
+    CGPoint newPos;
+//    if (ninja.flipX == NO) {
+//        float fixedPositionX = [CCDirector sharedDirector].winSize.width/4;
+//        float fixedPositionY = [CCDirector sharedDirector].winSize.height/4;
+//        float newX = fixedPositionX - ninja.position.x;
+//        float newY = fixedPositionY - ninja.position.y;
+//
+//        float groundMaxX = _tileMap.mapSize.width * _tileMap.tileSize.width;
+//        float groundMaxY = _tileMap.mapSize.height * _tileMap.tileSize.height;
+//        
+//        newX = MIN(newX, 0);
+//        newY = MIN(newY, 50);
+//        newX = MAX(newX, -groundMaxX-fixedPositionX);
+//        newY = MAX(newY, -groundMaxY-fixedPositionY);
+//        newPos = ccp(newX, newY);
+//    } else if (ninja.flipX == YES) {
+//        float fixedPositionX = [CCDirector sharedDirector].winSize.width/1.5;
+//        float fixedPositionY = [CCDirector sharedDirector].winSize.height/4;
+//        float newX = fixedPositionX - ninja.position.x;
+//        float newY = fixedPositionY - ninja.position.y;
+//        
+//        float groundMaxX = _tileMap.mapSize.width * _tileMap.tileSize.width;
+//        float groundMaxY = _tileMap.mapSize.height * _tileMap.tileSize.height;
+//        
+//        newX = MIN(newX, 0);
+//        newY = MIN(newY, 50);
+//        newX = MAX(newX, -groundMaxX-fixedPositionX);
+//        newY = MAX(newY, -groundMaxY-fixedPositionY);
+//        newPos = ccp(newX, newY);
+//    }
+   // [self setPosition:newPos];
     
-    newX = MIN(newX, 0);
-    newY = MIN(newY, 50);
-    newX = MAX(newX, -groundMaxX-fixedPositionX);
-    newY = MAX(newY, -groundMaxY-fixedPositionY);
-    CGPoint newPos = ccp(newX, newY);
-    //CCLOG(@"%f", newY);
-    [self setPosition:newPos];
+    [self runAction:[CCFollow actionWithTarget:ninja worldBoundary:CGRectMake(0,0,3200,3200)]];
 }
 
 - (void)update:(ccTime)dt {
