@@ -44,8 +44,8 @@
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"scene1atlas.plist"];
         batchNode = [CCSpriteBatchNode batchNodeWithFile:@"scene1atlas.png"];
-        ninja = [[[CPNinja alloc] initWithLocation:ccp(140, 100) space:space groundBody:groundBody] autorelease];
-        robot = [[[Robot alloc] initWithLocation:ccp(135,100) space:space groundBody:groundBody] autorelease];
+        ninja = [[[CPNinja alloc] initWithLocation:ccp(100, 100) space:space groundBody:groundBody] autorelease];
+        robot = [[[Robot alloc] initWithLocation:ccp(200,150) space:space groundBody:groundBody] autorelease];
         [self addChild:batchNode z:0];
         [batchNode addChild:ninja z:kNinjaSpriteZValue tag:kNinjaSpriteTagValue];
         [batchNode addChild:robot];
