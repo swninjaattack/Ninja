@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="100" height="100" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="meta_tiles" tilewidth="32" tileheight="32" spacing="1" margin="1">
+  <image source="meta_tiles.png" width="67" height="34"/>
+   <tile id="0">
+     <properties>
+      <property name="Collidable" value="True"/>
+     </properties>
+   </tile>
+   </tileset>
+ <tileset firstgid="3" name="Platforms" tilewidth="32" tileheight="32" spacing="1" margin="1">
+  <image source="Platforms.png" width="133" height="34"/>
+ </tileset>
+ <layer name="Background" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt2zkOgDAMBMBIHP9/MtBSgCOC4sCM5A7aXXJQCgAAAAAAAAAAAABAPss+U2DWyufP7wEwtiP/ZTqQkXwCspJPQFbyCXhL7fmBcwUAyMEaAQCgXmQfxDcWAE9YrwPAmHQ4AHyLbgcgSmcAAMS0+v/MnS0AaO+up/UsAOSnz4GerjJI/gC91d7rcA8E4L9mk2o2kNYDag==
+  </data>
+ </layer>
+ <layer name="Meta" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt2zEKwCAQBEDz/0+ntfSC4l6YATttd8HTMQAAAAAAAAAAAAAA8jyFVd0/nwOgN5kOpJJPQCr5BKSST8ApX+YH5goAcJ/+BQCoc8cBwGm6BAB60uEA8C+6HYBVOgMAYM3O/2febAHAXnoWAPrT58BN8gdIVs0i2QUAGV6gogB/
+  </data>
+ </layer>
+</map>
