@@ -140,7 +140,7 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
         }
     }
     else {
-        if (ncollide && !(ninja.flipX == self.flipX) && ninjaState != kStateTakingDamage) {
+        if (ncollide && !(ninja.flipX == self.flipX) && ninjaState != kStateTakingDamage && characterState != kStateTakingDamage) {
             [ninja changeState:kStateTakingDamage];   
         }
     }
