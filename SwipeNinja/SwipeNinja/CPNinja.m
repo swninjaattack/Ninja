@@ -13,6 +13,9 @@
 @synthesize groundShapes;
 @synthesize attackAnim;
 @synthesize walkingAnim;
+@synthesize jumpAnim;
+@synthesize inAirAnim;
+@synthesize landAnim;
 
 static cpBool begin(cpArbiter *arb, cpSpace *space, void *ignore) {
     CP_ARBITER_GET_SHAPES(arb, ninjaShape, groundShape);
@@ -66,6 +69,20 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
         [walkFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"NinjaWalking%d.png", i]]];
     }
     self.walkingAnim = [CCAnimation animationWithFrames:walkFrames delay:0.25f];
+    
+    NSMutableArray *landFrames = [[[NSMutableArray alloc] initWithCapacity:4] retain];
+        [landFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Landing.png"]];
+    self.landAnim = [CCAnimation animationWithFrames:landFrames delay:0.25f];
+    
+    NSMutableArray *jumpFrames = [[[NSMutableArray alloc] initWithCapacity:4] retain];
+        [jumpFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"JumpStart.png"]];
+    self.jumpAnim = [CCAnimation animationWithFrames:jumpFrames delay:0.25f];
+    
+    NSMutableArray *inAirFrames = [[[NSMutableArray alloc] initWithCapacity:4] retain];
+    for (int i=1; i<=2; ++i) {
+        [inAirFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"Midair%d.png", i]]];
+    }
+    self.inAirAnim = [CCAnimation animationWithFrames:inAirFrames delay:0.25f];
 }
 
 -(BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
@@ -117,6 +134,16 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
             if (characterHealth <=0) {
                 [self changeState:kStateDead];
             }
+            break;
+        case kStateJumping:
+            action = [CCAnimate actionWithAnimation:jumpAnim restoreOriginalFrame:NO];
+            break;
+        case kStateInAir:
+            action = [CCAnimate actionWithAnimation:inAirAnim restoreOriginalFrame:NO];
+            break;
+        case kStateLanding:
+            action = [CCAnimate actionWithAnimation:landAnim restoreOriginalFrame:NO];
+            break;
         case kStateIdle:
             [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Ninja1.png"]];
             break;
@@ -124,8 +151,6 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
             action = [CCAnimate actionWithAnimation:attackAnim restoreOriginalFrame:YES];
             NSLog(@"ATTACCCKKKINNGGG!!! ");
             break;
-        case kStateJumping:
-            NSLog(@"Jump");
         default:
             break;
     }
@@ -163,12 +188,17 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     }
     
     if (groundShapes->num == 0) {
+        if( [self numberOfRunningActions] == 0){
+            [self changeState:kStateInAir];
+        }
         newVel = ccp(jumpFactor*accelerationFraction, body->v.y);
     }
     
-
     
     if (groundShapes->num > 0) {
+        if (characterState == kStateInAir) {
+            [self changeState:kStateLanding];
+        }
         if (ABS(accelerationFraction) < 0.05) {
             accelerationFraction = 0;
             shape->surface_v = ccp(0, 0);

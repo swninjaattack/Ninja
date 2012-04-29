@@ -10,6 +10,8 @@ typedef enum {
     kStateIdle,
     kStateWalking,
     kStateJumping,
+    kStateLanding,
+    kStateInAir,
     kStateAttacking,
     kStateRotating,
     kStateTakingDamage,
