@@ -93,11 +93,8 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
             action = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkingAnim restoreOriginalFrame:NO]];
             break;
             case kStateTakingDamage:
-                characterHealth -= 50.0f;
-                action = [CCBlink actionWithDuration:1.0 blinks:3.0];
-                if (characterHealth <=0.0f){
-                    [self changeState:kStateDead];
-                }
+                characterHealth -= 100.0;
+                action = [CCBlink actionWithDuration:1.0 blinks:6.0];
             break;
             case kStateRotating:
             {
@@ -144,6 +141,7 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
             [ninja changeState:kStateTakingDamage];   
         }
     }
+
     if((characterState == kStateTakingDamage) && ([self numberOfRunningActions] > 0 )) {
         return;
     }
@@ -190,6 +188,9 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
             shape->surface_v = cpvzero;
         }
         cpBodySetVel(body, newVel);
+    }
+    if (characterHealth <=0.0f && characterState != kStateTakingDamage){
+        [self changeState:kStateDead];
     }
 }
 
