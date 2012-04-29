@@ -12,6 +12,9 @@
     cpArray *groundShapes;
     CCAnimation *attackAnim;
     CCAnimation *walkingAnim;
+    CCAnimation *jumpAnim;
+    CCAnimation *inAirAnim;
+    CCAnimation *landAnim;
     CPSprite *robot;
     double jumpStartTime;
     float accelerationFraction;
@@ -29,5 +32,8 @@
 @property (readonly) cpArray *groundShapes;
 @property (nonatomic, retain) CCAnimation *attackAnim;
 @property (nonatomic, retain) CCAnimation *walkingAnim;
+@property (nonatomic, retain) CCAnimation *jumpAnim;
+@property (nonatomic, retain) CCAnimation *inAirAnim;
+@property (nonatomic, retain) CCAnimation *landAnim;
 
 @end

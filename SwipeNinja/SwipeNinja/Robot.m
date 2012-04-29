@@ -94,11 +94,9 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
             break;
             case kStateTakingDamage:
                 characterHealth -= 50.0f;
+                action = [CCBlink actionWithDuration:1.0 blinks:3.0];
                 if (characterHealth <=0.0f){
                     [self changeState:kStateDead];
-                }
-                else {
-                    action = [CCBlink actionWithDuration:1.0 blinks:3.0];
                 }
             break;
             case kStateRotating:
@@ -123,17 +121,27 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     cpSpaceRemoveShape(space, shape);
 }
 
+
+
 - (void) updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray *)listOfGameObjects {
     [super updateStateWithDeltaTime:deltaTime andListOfGameObjects:listOfGameObjects];
+
     if (characterState == kStateDead)
         return;
     ninja = (CPSprite *) [[self parent] getChildByTag:kNinjaSpriteTagValue];
     CGRect ninjaBoundingBox = [ninja adjustedBoundingBox];
+    Boolean rcollide = (CGRectIntersectsRect([self adjustedBoundingBox], ninjaBoundingBox));
+    Boolean ncollide = (CGRectIntersectsRect([ninja boundingBox], [self adjustedBoundingBox]));
     CharacterStates ninjaState = [ninja characterState];
-    if ((ninjaState == kStateAttacking) && (CGRectIntersectsRect([self adjustedBoundingBox], ninjaBoundingBox))){
+    if ((ninjaState == kStateAttacking) && rcollide){
         if(characterState != kStateTakingDamage) {
             [self changeState:kStateTakingDamage];
             return;
+        }
+    }
+    else {
+        if (ncollide && !(ninja.flipX == self.flipX) && ninjaState != kStateTakingDamage) {
+            [ninja changeState:kStateTakingDamage];   
         }
     }
     if((characterState == kStateTakingDamage) && ([self numberOfRunningActions] > 0 )) {

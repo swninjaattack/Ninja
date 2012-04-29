@@ -4,10 +4,62 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>JumpStart.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{300,2},{66,70}}</string>
+                <key>offset</key>
+                <string>{-9,-9}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{2,18},{66,70}}</string>
+                <key>sourceSize</key>
+                <string>{88,88}</string>
+            </dict>
+            <key>Landing.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{144,70},{62,68}}</string>
+                <key>offset</key>
+                <string>{-10,-10}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{3,20},{62,68}}</string>
+                <key>sourceSize</key>
+                <string>{88,88}</string>
+            </dict>
+            <key>Midair1.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{226,66},{62,68}}</string>
+                <key>offset</key>
+                <string>{-2,-10}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{11,20},{62,68}}</string>
+                <key>sourceSize</key>
+                <string>{88,88}</string>
+            </dict>
+            <key>Midair2.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{144,2},{66,80}}</string>
+                <key>offset</key>
+                <string>{-5,-4}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{6,8},{66,80}}</string>
+                <key>sourceSize</key>
+                <string>{88,88}</string>
+            </dict>
             <key>Ninja.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{428,42},{58,67}}</string>
+                <string>{{442,88},{58,67}}</string>
                 <key>offset</key>
                 <string>{-9,2}</string>
                 <key>rotated</key>
@@ -20,7 +72,7 @@
             <key>Ninja1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{144,66},{58,64}}</string>
+                <string>{{214,130},{58,64}}</string>
                 <key>offset</key>
                 <string>{-8,-12}</string>
                 <key>rotated</key>
@@ -33,7 +85,7 @@
             <key>NinjaAttack1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{218,64},{60,64}}</string>
+                <string>{{430,148},{60,64}}</string>
                 <key>offset</key>
                 <string>{-7,-12}</string>
                 <key>rotated</key>
@@ -46,7 +98,7 @@
             <key>NinjaAttack2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{144,2},{62,72}}</string>
+                <string>{{226,2},{62,72}}</string>
                 <key>offset</key>
                 <string>{-7,-8}</string>
                 <key>rotated</key>
@@ -85,7 +137,7 @@
             <key>NinjaWalking1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{144,66},{58,64}}</string>
+                <string>{{214,130},{58,64}}</string>
                 <key>offset</key>
                 <string>{-7,-12}</string>
                 <key>rotated</key>
@@ -98,7 +150,7 @@
             <key>NinjaWalking2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{288,46},{62,64}}</string>
+                <string>{{364,104},{62,64}}</string>
                 <key>offset</key>
                 <string>{-6,-12}</string>
                 <key>rotated</key>
@@ -111,7 +163,7 @@
             <key>NinjaWalking3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{218,2},{60,68}}</string>
+                <string>{{372,2},{60,68}}</string>
                 <key>offset</key>
                 <string>{-6,-10}</string>
                 <key>rotated</key>
@@ -124,7 +176,7 @@
             <key>NinjaWalking4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{358,44},{64,66}}</string>
+                <string>{{296,70},{64,66}}</string>
                 <key>offset</key>
                 <string>{-8,-11}</string>
                 <key>rotated</key>
@@ -137,7 +189,7 @@
             <key>Robot1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{288,2},{42,68}}</string>
+                <string>{{442,2},{42,68}}</string>
                 <key>offset</key>
                 <string>{-6,-10}</string>
                 <key>rotated</key>
@@ -150,7 +202,7 @@
             <key>Robot2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{358,2},{40,68}}</string>
+                <string>{{442,46},{40,68}}</string>
                 <key>offset</key>
                 <string>{-6,-10}</string>
                 <key>rotated</key>
@@ -176,7 +228,7 @@
             <key>Robot4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{428,2},{38,68}}</string>
+                <string>{{372,64},{38,68}}</string>
                 <key>offset</key>
                 <string>{2,-10}</string>
                 <key>rotated</key>
@@ -365,7 +417,7 @@
             <key>size</key>
             <string>{512,512}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:97d2e80f7a014b3999bf4f9a0a55d2c3$</string>
+            <string>$TexturePacker:SmartUpdate:44713d8e4e2cff1f40631ce871f0ce09$</string>
             <key>textureFileName</key>
             <string>scene1atlas.png</string>
         </dict>
