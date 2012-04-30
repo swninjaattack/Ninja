@@ -33,7 +33,7 @@
     CCParallaxNode * parallax = [CCParallaxNode node];
     [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGB565];
     CCSprite *background;
-    background = [CCSprite spriteWithFile:@"Menu2.png"];
+    background = [CCSprite spriteWithFile:@"WinScreen.png"];
     background.anchorPoint = ccp(0,0);
     [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_Default];
     [parallax addChild:background z:-10 parallaxRatio:ccp(0.1f , 0.1f) positionOffset:ccp(0,0)];

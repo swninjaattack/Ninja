@@ -11,6 +11,7 @@
 		5238B92C154F1ED300E181C0 /* GoalFlag.png in Resources */ = {isa = PBXBuildFile; fileRef = 5238B92B154F1ED300E181C0 /* GoalFlag.png */; };
 		5238B930154F1F5000E181C0 /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5238B92F154F1F5000E181C0 /* Goal.m */; };
 		5238B932154F2C9200E181C0 /* KillScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5238B931154F2C9200E181C0 /* KillScreen.png */; };
+		5238B934154F3F9900E181C0 /* WinScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5238B933154F3F9900E181C0 /* WinScreen.png */; };
 		523A1716154A1A1A0026993D /* Robot.m in Sources */ = {isa = PBXBuildFile; fileRef = 523A1715154A1A1A0026993D /* Robot.m */; };
 		525A2106154F05FF0051F058 /* 01 Battle Music.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 525A20FD154F05FF0051F058 /* 01 Battle Music.m4a */; };
 		525A2107154F05FF0051F058 /* 02 Boss Music.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 525A20FE154F05FF0051F058 /* 02 Boss Music.m4a */; };
@@ -206,6 +207,7 @@
 		5238B92E154F1F5000E181C0 /* Goal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Goal.h; sourceTree = "<group>"; };
 		5238B92F154F1F5000E181C0 /* Goal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Goal.m; sourceTree = "<group>"; };
 		5238B931154F2C9200E181C0 /* KillScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KillScreen.png; sourceTree = "<group>"; };
+		5238B933154F3F9900E181C0 /* WinScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WinScreen.png; sourceTree = "<group>"; };
 		523A1714154A1A1A0026993D /* Robot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Robot.h; sourceTree = "<group>"; };
 		523A1715154A1A1A0026993D /* Robot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Robot.m; sourceTree = "<group>"; };
 		525A20FD154F05FF0051F058 /* 01 Battle Music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "01 Battle Music.m4a"; sourceTree = "<group>"; };
@@ -673,6 +675,7 @@
 		F6FE84CE1524C8A100B50824 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5238B933154F3F9900E181C0 /* WinScreen.png */,
 				5238B931154F2C9200E181C0 /* KillScreen.png */,
 				5238B92B154F1ED300E181C0 /* GoalFlag.png */,
 				525A211B154F17CC0051F058 /* Invisible.png */,
@@ -1298,6 +1301,7 @@
 				525A211C154F17CC0051F058 /* Invisible.png in Resources */,
 				5238B92C154F1ED300E181C0 /* GoalFlag.png in Resources */,
 				5238B932154F2C9200E181C0 /* KillScreen.png in Resources */,
+				5238B934154F3F9900E181C0 /* WinScreen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
