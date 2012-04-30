@@ -21,11 +21,11 @@
     //cpMouse *mouse;
     CPNinja *ninja;
     Robot *robot;
+    NSMutableArray *robots;
     Goal *goal;
     CGSize levelBounds;
     CCSpriteBatchNode *batchNode;
-    BOOL platformLocs[100][100];
-    BOOL isRobotDead;
+    BOOL robotStatus[5];
     BOOL isPlayerDead;
     
     CCTMXLayer *_meta;

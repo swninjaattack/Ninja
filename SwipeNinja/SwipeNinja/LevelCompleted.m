@@ -19,6 +19,10 @@
     if (mainMenu != nil) {
         [mainMenu removeFromParentAndCleanup:YES];
     }
+    CCLabelTTF *robotCountLabel = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"Robots Killed: %d", [[GameManager sharedGameManager] robotsKilled]] fontName:@"Marker Felt" fontSize:32];
+    robotCountLabel.position = ccp([CCDirector sharedDirector].winSize.width/2, [CCDirector sharedDirector].winSize.height/2);
+    [self addChild:robotCountLabel];
+    
     mainMenu = [CCMenu menuWithItems:background, nil];
     mainMenu.position = ccp([CCDirector sharedDirector].winSize.width/2,[CCDirector sharedDirector].winSize.height/2);
     [self addChild:mainMenu z:2];

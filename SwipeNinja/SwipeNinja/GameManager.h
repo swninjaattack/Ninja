@@ -11,10 +11,13 @@
 
 @interface GameManager : NSObject {
     SceneTypes currentScene;
+    int numOfRobotsKilled;
     
 }
 
 +(GameManager *)sharedGameManager;
+-(void)addRobotKilled;
+-(int)robotsKilled;
 -(void)runSceneWithID:(SceneTypes)sceneID;
 
 @end

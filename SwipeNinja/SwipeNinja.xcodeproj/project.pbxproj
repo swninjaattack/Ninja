@@ -31,8 +31,8 @@
 		C317A9C4154A6B940018FE2D /* Robot3.png in Resources */ = {isa = PBXBuildFile; fileRef = C317A9C0154A6B940018FE2D /* Robot3.png */; };
 		C317A9C5154A6B940018FE2D /* Robot4.png in Resources */ = {isa = PBXBuildFile; fileRef = C317A9C1154A6B940018FE2D /* Robot4.png */; };
 		F607CE0B1524E3CC00C80014 /* background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F607CE091524E3CC00C80014 /* background-hd.png */; };
+		F6459F43154F4E3B0041B666 /* SwipeNinjaLevelOne.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F6459F42154F4E3B0041B666 /* SwipeNinjaLevelOne.tmx */; };
 		F67115DD154CEF34004D5427 /* Platforms.png in Resources */ = {isa = PBXBuildFile; fileRef = F67115DB154CEF34004D5427 /* Platforms.png */; };
-		F67115E4154CF4C5004D5427 /* SwipeNinjaLevelOne.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F67115E3154CF4C5004D5427 /* SwipeNinjaLevelOne.tmx */; };
 		F6858CE6153BB4E2003589A5 /* CPNinja.m in Sources */ = {isa = PBXBuildFile; fileRef = F6858CE5153BB4E2003589A5 /* CPNinja.m */; };
 		F6B39698153540DD008F9860 /* drawSpace.c in Sources */ = {isa = PBXBuildFile; fileRef = F6B39682153540DD008F9860 /* drawSpace.c */; };
 		F6B396AF1535415F008F9860 /* cpMouse.c in Sources */ = {isa = PBXBuildFile; fileRef = F6B396AD1535415F008F9860 /* cpMouse.c */; };
@@ -229,8 +229,8 @@
 		C317A9C0154A6B940018FE2D /* Robot3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Robot3.png; sourceTree = "<group>"; };
 		C317A9C1154A6B940018FE2D /* Robot4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Robot4.png; sourceTree = "<group>"; };
 		F607CE091524E3CC00C80014 /* background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-hd.png"; path = "Resources/background-hd.png"; sourceTree = "<group>"; };
+		F6459F42154F4E3B0041B666 /* SwipeNinjaLevelOne.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SwipeNinjaLevelOne.tmx; sourceTree = SOURCE_ROOT; };
 		F67115DB154CEF34004D5427 /* Platforms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Platforms.png; sourceTree = "<group>"; };
-		F67115E3154CF4C5004D5427 /* SwipeNinjaLevelOne.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SwipeNinjaLevelOne.tmx; sourceTree = "<group>"; };
 		F6858CE4153BB4E2003589A5 /* CPNinja.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPNinja.h; sourceTree = "<group>"; };
 		F6858CE5153BB4E2003589A5 /* CPNinja.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPNinja.m; sourceTree = "<group>"; };
 		F6B39682153540DD008F9860 /* drawSpace.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; name = drawSpace.c; path = libs/Chipmunk/Demo/drawSpace.c; sourceTree = "<group>"; };
@@ -686,7 +686,6 @@
 				525A2103154F05FF0051F058 /* MenuForest.png */,
 				525A2104154F05FF0051F058 /* NewGame.png */,
 				525A2105154F05FF0051F058 /* NewGameSelected.png */,
-				F67115E3154CF4C5004D5427 /* SwipeNinjaLevelOne.tmx */,
 				F67115DB154CEF34004D5427 /* Platforms.png */,
 				C317A9BE154A6B940018FE2D /* Robot1.png */,
 				C317A9BF154A6B940018FE2D /* Robot2.png */,
@@ -696,6 +695,7 @@
 				F6DA0E5E1547B767001435FE /* meta_tiles.png */,
 				F6DA0E5F1547B767001435FE /* Ninja.png */,
 				F6DA0E651547B901001435FE /* Ninja-hd.png */,
+				F6459F42154F4E3B0041B666 /* SwipeNinjaLevelOne.tmx */,
 				F6DA0E601547B768001435FE /* TileMap.tmx */,
 				52EA6188153F956D00781E15 /* background.png */,
 				F607CE091524E3CC00C80014 /* background-hd.png */,
@@ -1284,7 +1284,6 @@
 				C317A9C5154A6B940018FE2D /* Robot4.png in Resources */,
 				5206E8DC154B02E000F7E668 /* Robot.plist in Resources */,
 				F67115DD154CEF34004D5427 /* Platforms.png in Resources */,
-				F67115E4154CF4C5004D5427 /* SwipeNinjaLevelOne.tmx in Resources */,
 				525A2106154F05FF0051F058 /* 01 Battle Music.m4a in Resources */,
 				525A2107154F05FF0051F058 /* 02 Boss Music.m4a in Resources */,
 				525A2108154F05FF0051F058 /* Background1.png in Resources */,
@@ -1298,6 +1297,7 @@
 				525A211C154F17CC0051F058 /* Invisible.png in Resources */,
 				5238B92C154F1ED300E181C0 /* GoalFlag.png in Resources */,
 				5238B932154F2C9200E181C0 /* KillScreen.png in Resources */,
+				F6459F43154F4E3B0041B666 /* SwipeNinjaLevelOne.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

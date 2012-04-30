@@ -35,7 +35,12 @@
 -(id)init {
     self = [super init];
     if (self != nil) {
-        isRobotDead = NO;
+        robots = [[[NSMutableArray alloc] initWithCapacity:5] retain];
+        
+        for (int x=0; x<5; ++x) {
+            robotStatus[x]=NO;
+        }
+        
         isPlayerDead = NO;
         [[CCDirector sharedDirector] enableRetinaDisplay:YES];
         self.tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"SwipeNinjaLevelOne.tmx"];
@@ -59,12 +64,26 @@
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"scene1atlas.plist"];
         batchNode = [CCSpriteBatchNode batchNodeWithFile:@"scene1atlas.png"];
         ninja = [[[CPNinja alloc] initWithLocation:ccp(100,100) space:space groundBody:groundBody] autorelease];
-        robot = [[[Robot alloc] initWithLocation:ccp(170,150) space:space groundBody:groundBody] autorelease];
+        
+        [robots addObject:[[[Robot alloc] initWithLocation:ccp(170,150) space:space groundBody:groundBody] autorelease]];
+        [robots addObject:[[[Robot alloc] initWithLocation:ccp(336,256) space:space groundBody:groundBody] autorelease]];
+        [robots addObject:[[[Robot alloc] initWithLocation:ccp(656,336) space:space groundBody:groundBody] autorelease]];
+        [robots addObject:[[[Robot alloc] initWithLocation:ccp(528,720) space:space groundBody:groundBody] autorelease]];
+        [robots addObject:[[[Robot alloc] initWithLocation:ccp(768,896) space:space groundBody:groundBody] autorelease]];
+        
+//        [[[[robots objectAtIndex:1] alloc] initWithLocation:ccp(336,256) space:space groundBody:groundBody] autorelease];
+//        [[[[robots objectAtIndex:2] alloc] initWithLocation:ccp(656,336) space:space groundBody:groundBody] autorelease];
+//        [[[[robots objectAtIndex:3] alloc] initWithLocation:ccp(528,720) space:space groundBody:groundBody] autorelease];
+//        [[[[robots objectAtIndex:4] alloc] initWithLocation:ccp(768,896) space:space groundBody:groundBody] autorelease];
+
+        
         goal = [[[Goal alloc] initWithLocation:ccp(1488,1185) space:space groundBody:groundBody] autorelease];
         [self addChild:batchNode z:0];
         [batchNode addChild:goal z:kGoalSpriteZValue tag:kGoalSpriteTagValue];
         [batchNode addChild:ninja z:kNinjaSpriteZValue tag:kNinjaSpriteTagValue];
-        [batchNode addChild:robot];
+        for (int j=0; j<5; ++j) {
+            [batchNode addChild:[robots objectAtIndex:j]];
+        }
         [self createLevel];
         [self createBackground];
         //ninjaSprite = [CCSprite spriteWithFile:@"Ninja.png"];
@@ -87,7 +106,7 @@
 -(void)createBoxAtLocation:(CGPoint)location withWidth:(int)width {
     
     CGPoint temp = location;
-    CCLOG(@"%f, %f", location.x, location.y);
+    //CCLOG(@"%f, %f", location.x, location.y);
 
     temp.x = (temp.x+24.0)/2.0;
     temp.y = temp.y/2.0;
@@ -231,13 +250,17 @@
     }    
     
     
-    if (isRobotDead != YES) { //bad for multiple robots..
-        if ([robot characterState] == kStateDead) {
-            [robot removeBody];
-            [batchNode removeChild:robot cleanup:YES];
-            isRobotDead = YES;
+    for (int i=0; i<5; ++i) {
+        if (robotStatus[i] != YES) {
+            if ([[robots objectAtIndex:i] characterState] == kStateDead) {
+                [[robots objectAtIndex:i] removeBody];
+                [batchNode removeChild:[robots objectAtIndex:i] cleanup:YES];
+                robotStatus[i] = YES;
+            }
         }
     }
+
+    
     if (isPlayerDead != YES) {
         if ([ninja characterState] == kStateDead) {
             [batchNode removeChild:ninja cleanup:YES];
@@ -245,6 +268,11 @@
             isPlayerDead = YES;
         }
         if ([ninja characterState] == kLevelCompleted) {
+            for (int i=0; i<5; ++i) {
+                if (robotStatus[i] == YES) {
+                    [[GameManager sharedGameManager] addRobotKilled];
+                }
+            }
             [[GameManager sharedGameManager] runSceneWithID:kLevelCompleteScene];
         }
     }
