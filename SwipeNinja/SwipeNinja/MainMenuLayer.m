@@ -37,10 +37,7 @@
     }
     mainMenu = [CCMenu menuWithItems:background, nil];
     titleTop.position = ccp([CCDirector sharedDirector].winSize.width/2,[CCDirector sharedDirector].winSize.height-titleTop.contentSize.height/2);
-    //[self addChild:titleTop];
     mainMenu.position = ccp([CCDirector sharedDirector].winSize.width/2,[CCDirector sharedDirector].winSize.height/2);
-    //mainMenu.position = ccp([CCDirector sharedDirector].winSize.width/2,[CCDirector sharedDirector].winSize.height*1/3);
-    //[mainMenu alignItemsVerticallyWithPadding:40.0f];
     [self addChild:mainMenu z:2];
     if (![soundEngine isBackgroundMusicPlaying]){
         [self loadAudio:@"01 Battle Music.m4a"];
@@ -74,8 +71,6 @@
 -(void)displaySceneSelection {
     CCSprite *background = [CCSprite spriteWithFile:@"Menu2.png"];
     [self createBackground:background];
-    //CCSprite *background = [CCSprite spriteWithFile:@"Menu2.png"];
-    //[self createBackground:background];
     CCMenuItemImage *startNew = [CCMenuItemImage itemFromNormalImage:@"NewGame.png" selectedImage:@"NewGameSelected.png" target:self selector:@selector(levelOneSelect)];
     CCMenuItemImage *credits = [CCMenuItemImage itemFromNormalImage:@"Credits.png" selectedImage:@"CreditsSelected.png" target:self selector:@selector(displayCredits)];
     //CCMenuItemFont *levelOne = [CCMenuItemFont itemFromString:@"Level 1" target:self selector:@selector(levelOneSelect)];

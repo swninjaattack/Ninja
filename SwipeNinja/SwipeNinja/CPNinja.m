@@ -179,6 +179,13 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
 
 -(void)updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray *)listOfGameObjects {
     
+    if (characterState == kStateTakingDamage && [self numberOfRunningActions] >0) {
+        return;
+    }
+    goal = (CPSprite *) [[self parent] getChildByTag:kGoalSpriteTagValue];
+    if (CGRectIntersectsRect([self adjustedBoundingBox], [goal adjustedBoundingBox])) {
+        [self changeState:kLevelCompleted];
+    }
     CGPoint oldPosition = self.position;
     [super updateStateWithDeltaTime:deltaTime andListOfGameObjects:listOfGameObjects];
     float jumpFactor = 200.0;
