@@ -41,13 +41,20 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
         CGSize size = CGSizeMake(30, 30);
         groundShapes = cpArrayNew(0);
         self.anchorPoint = ccp(0.5, 20/self.contentSize.height);
-        NSLog(@"%f, %f", self.contentSize.width, self.contentSize.height);
+        //NSLog(@"%f, %f", self.contentSize.width, self.contentSize.height);
         [self addBoxBodyAndShapeWithLocation:location size:size space:theSpace mass:1.0 e:0.0 u:1.0 collisionType:kCollisionTypeGoal canRotate:FALSE];
         cpSpaceAddCollisionHandler(space, kCollisionTypeGoal, kCollisionTypeGround, begin, preSolve, NULL, separate, NULL);
         cpConstraint *constraint = cpRotaryLimitJointNew(groundBody, body, CC_DEGREES_TO_RADIANS(0), CC_DEGREES_TO_RADIANS(0));
         cpSpaceAddConstraint(space, constraint);
     }
     return self;
+}
+
+-(void)updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray *)listOfGameObjects {
+    [super updateStateWithDeltaTime:deltaTime andListOfGameObjects:listOfGameObjects];
+
+    cpBodySetPos(body, ccp(1488, body->p.y));
+
 }
 
 @end

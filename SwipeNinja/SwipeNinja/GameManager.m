@@ -40,6 +40,7 @@ static GameManager* _sharedGameManager = nil;
     self = [super init];
     if (self != nil) {
         currentScene = kNoSceneUninitialized;
+        numOfRobotsKilled=0;
         cpInitChipmunk();
     }
     return self;
@@ -77,6 +78,14 @@ static GameManager* _sharedGameManager = nil;
         [[CCDirector sharedDirector] runWithScene:sceneToRun];
     else 
         [[CCDirector sharedDirector] replaceScene:sceneToRun];
+}
+
+-(void)addRobotKilled {
+    ++numOfRobotsKilled;
+}
+
+-(int)robotsKilled {
+    return numOfRobotsKilled;
 }
 
 @end
