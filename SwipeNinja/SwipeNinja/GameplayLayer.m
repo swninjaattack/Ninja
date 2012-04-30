@@ -19,6 +19,18 @@
 @synthesize tileMap = _tileMap;
 @synthesize background = _background;
 
+- (void)createBackground {
+    CCParallaxNode * parallax = [CCParallaxNode node];
+    [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGB565];
+    CCSprite *background;
+    background = [CCSprite spriteWithFile:@"Background1.png"];
+    background.anchorPoint = ccp(0,0);
+    [CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_Default];
+    [parallax addChild:background z:-10 parallaxRatio:ccp(0.1f , 0.1f) positionOffset:ccp(0,0)];
+    [self addChild:parallax z:-10];
+    //[background runAction:[CCRepeatForever actionWithAction:[CCSequence actions:[CCTintTo actionWithDuration:0.5 red:0 green:0 blue:200],[CCTintTo actionWithDuration:0.5 red:255 green:255 blue:255], nil]]];
+}
+
 -(id)init {
     self = [super init];
     if (self != nil) {
@@ -50,7 +62,7 @@
         [batchNode addChild:ninja z:kNinjaSpriteZValue tag:kNinjaSpriteTagValue];
         [batchNode addChild:robot];
         [self createLevel];
-        
+        [self createBackground];
         //ninjaSprite = [CCSprite spriteWithFile:@"Ninja.png"];
         //[ninjaSprite setPosition:CGPointMake(screenSize.width/2, 40)];
         //[self addChild:ninjaSprite];

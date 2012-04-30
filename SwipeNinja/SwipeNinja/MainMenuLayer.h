@@ -10,11 +10,13 @@
 #import "cocos2d.h"
 #import "Constants.h"
 #import "GameManager.h"
+#import "SimpleAudioEngine.h"
 
 @interface MainMenuLayer : CCLayer {
     CCMenu *mainMenu;
     CCMenu *levelOneSelect;
     CCMenu *sceneSelectMenu;
+    SimpleAudioEngine *soundEngine;
     bool newGame;
 }
 @end
