@@ -179,6 +179,9 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
 
 -(void)updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray *)listOfGameObjects {
     CGPoint oldPosition = self.position;
+    if (characterState == kLevelCompleted) {
+        return;
+    }
     [super updateStateWithDeltaTime:deltaTime andListOfGameObjects:listOfGameObjects];
     float jumpFactor = 200.0;
     CGPoint newVel = body->v;
