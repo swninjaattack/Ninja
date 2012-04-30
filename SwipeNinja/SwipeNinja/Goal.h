@@ -10,6 +10,7 @@
 
 @interface Goal : CPSprite {
     cpArray *groundShapes;
+    CGPoint initialPosition;
 }
 
 

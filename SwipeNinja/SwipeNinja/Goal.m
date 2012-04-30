@@ -40,6 +40,7 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     if ((self = [super initWithSpriteFrameName:@"GoalFlag.png"])) {
         CGSize size = CGSizeMake(30, 30);
         groundShapes = cpArrayNew(0);
+        initialPosition = location;
         self.anchorPoint = ccp(0.5, 20/self.contentSize.height);
         //NSLog(@"%f, %f", self.contentSize.width, self.contentSize.height);
         [self addBoxBodyAndShapeWithLocation:location size:size space:theSpace mass:1.0 e:0.0 u:1.0 collisionType:kCollisionTypeGoal canRotate:FALSE];
@@ -53,7 +54,7 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
 -(void)updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray *)listOfGameObjects {
     [super updateStateWithDeltaTime:deltaTime andListOfGameObjects:listOfGameObjects];
 
-    cpBodySetPos(body, ccp(1488, body->p.y));
+    cpBodySetPos(body, ccp(initialPosition.x, body->p.y));
 
 }
 
