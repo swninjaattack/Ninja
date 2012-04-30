@@ -271,7 +271,7 @@
     drawSpaceOptions options = {
         0,
         0,
-        1,                          //set this int to draw or not
+        0,      //set this int to draw boxes or not
         0.0f,   //was 4.0 makes the red boxes
         0.0f,
         0.0f,   //was 1.5
