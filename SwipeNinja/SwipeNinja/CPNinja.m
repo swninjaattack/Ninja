@@ -97,7 +97,7 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     //jumpStartTime = 0;
     secondTouch = [touch locationInView:[touch view]];
     if ((secondTouch.y - firstTouch.y) < -10.0f || (secondTouch.y - firstTouch.y) > 10.0f) {
-        if ([self characterState] != kStateAttacking) {
+        if ([self characterState] != kStateAttacking && [self characterState] != kStateTakingDamage) {
             [self changeState:kStateAttacking];
         }
         shouldJump = NO;
@@ -178,22 +178,10 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
 
 
 -(void)updateStateWithDeltaTime:(ccTime)deltaTime andListOfGameObjects:(CCArray *)listOfGameObjects {
-    
-    if (characterState == kStateTakingDamage && [self numberOfRunningActions] >0) {
-        return;
-    }
-    goal = (CPSprite *) [[self parent] getChildByTag:kGoalSpriteTagValue];
-    if (CGRectIntersectsRect([self adjustedBoundingBox], [goal adjustedBoundingBox])) {
-        [self changeState:kLevelCompleted];
-    }
     CGPoint oldPosition = self.position;
     [super updateStateWithDeltaTime:deltaTime andListOfGameObjects:listOfGameObjects];
     float jumpFactor = 200.0;
     CGPoint newVel = body->v;
-    if (characterState == kStateAttacking && [self numberOfRunningActions] == 0) {
-        [self changeState:kStateIdle];
-    }
-    
     if (groundShapes->num == 0) {
         if( [self numberOfRunningActions] == 0){
             [self changeState:kStateInAir];
@@ -203,7 +191,7 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     
     
     if (groundShapes->num > 0) {
-        if (characterState == kStateInAir) {
+        if (characterState == kStateInAir && characterState !=kStateTakingDamage) {
             [self changeState:kStateLanding];
         }
         if (ABS(accelerationFraction) < 0.05) {
@@ -213,7 +201,7 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
             float maxSpeed = 200.0f;
             shape->surface_v = ccp(-maxSpeed*accelerationFraction, 0);
             cpBodyActivate(body);
-            if ([self numberOfRunningActions] ==0) {
+            if ([self numberOfRunningActions] ==0 && characterState != kStateTakingDamage) {
                 [self changeState:kStateWalking];
             }
         }
@@ -222,13 +210,26 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     }
     
     double timeJumping = CACurrentMediaTime() - jumpStartTime;
-    if (jumpStartTime != 0 && shouldJump==YES) {
+    if (jumpStartTime != 0 && shouldJump==YES && characterState != kStateTakingDamage) {
         [self changeState:kStateJumping];
         newVel.y = jumpFactor*2;
         shouldJump = NO;
         jumpStartTime = 0;
     }
     cpBodySetVel(body, newVel);
+    if (characterState == kStateTakingDamage && [self numberOfRunningActions] >0) {
+        return;
+    }
+    goal = (CPSprite *) [[self parent] getChildByTag:kGoalSpriteTagValue];
+    if (CGRectIntersectsRect([self adjustedBoundingBox], [goal adjustedBoundingBox])) {
+        [self changeState:kLevelCompleted];
+    }
+
+    if ((characterState == kStateAttacking && [self numberOfRunningActions] == 0) || (characterState == kStateTakingDamage && [self numberOfRunningActions] == 0)) {
+        [self changeState:kStateIdle];
+    }
+    
+
     
     float margin = 20;
     CGSize winSize = [CCDirector sharedDirector].winSize;
