@@ -72,7 +72,7 @@
 }
 
 -(void)displaySceneSelection {
-    CCSprite *background = [CCSprite spriteWithFile:@"MenuForest.png"];
+    CCSprite *background = [CCSprite spriteWithFile:@"Menu2.png"];
     [self createBackground:background];
     //CCSprite *background = [CCSprite spriteWithFile:@"Menu2.png"];
     //[self createBackground:background];
