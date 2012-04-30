@@ -16,6 +16,7 @@
     CCAnimation *inAirAnim;
     CCAnimation *landAnim;
     CPSprite *robot;
+    CPSprite *goal;
     double jumpStartTime;
     float accelerationFraction;
     float lastFlip;

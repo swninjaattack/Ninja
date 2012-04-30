@@ -12,6 +12,7 @@
 
 @class CPNinja;
 @class Robot;
+@class Goal;
 
 @interface GameplayLayer : CCLayer {
     double startTime;
@@ -20,10 +21,12 @@
     //cpMouse *mouse;
     CPNinja *ninja;
     Robot *robot;
+    Goal *goal;
     CGSize levelBounds;
     CCSpriteBatchNode *batchNode;
     BOOL platformLocs[100][100];
     BOOL isRobotDead;
+    BOOL isPlayerDead;
     
     CCTMXLayer *_meta;
     CCTMXLayer *_foreground;

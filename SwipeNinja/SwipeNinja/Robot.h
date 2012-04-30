@@ -13,6 +13,7 @@
     CPSprite *ninja;
     cpArray *groundShapes;
     double movingStartTime;
+    CGPoint initialPosition;
     float accelerationFraction; //not sure if this is allowed?
     float lastFlip;
 }

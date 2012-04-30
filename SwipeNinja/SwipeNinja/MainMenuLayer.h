@@ -14,8 +14,6 @@
 
 @interface MainMenuLayer : CCLayer {
     CCMenu *mainMenu;
-    CCMenu *levelOneSelect;
-    CCMenu *sceneSelectMenu;
     SimpleAudioEngine *soundEngine;
     bool newGame;
 }

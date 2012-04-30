@@ -65,6 +65,7 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     if ((self = [super initWithSpriteFrameName:@"Robot1.png"])) {
         CGSize size = CGSizeMake(30, 30);
         characterHealth = 100.0f;
+        initialPosition = location;
         self.anchorPoint = ccp(0.5, 20/self.contentSize.height);
         NSLog(@"%f, %f", self.contentSize.width, self.contentSize.height);
         [self addBoxBodyAndShapeWithLocation:location size:size space:theSpace mass:1.0 e:0.0 u:1.0 collisionType:kCollisionTypeRobot canRotate:FALSE];
@@ -127,17 +128,17 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
         return;
     ninja = (CPSprite *) [[self parent] getChildByTag:kNinjaSpriteTagValue];
     CGRect ninjaBoundingBox = [ninja adjustedBoundingBox];
-    Boolean rcollide = (CGRectIntersectsRect([self adjustedBoundingBox], ninjaBoundingBox));
-    Boolean ncollide = (CGRectIntersectsRect([ninja boundingBox], [self adjustedBoundingBox]));
+    Boolean rCollide = (CGRectIntersectsRect([self adjustedBoundingBox], ninjaBoundingBox));
+    Boolean nCollide = (CGRectIntersectsRect([ninja boundingBox], [self adjustedBoundingBox]));
     CharacterStates ninjaState = [ninja characterState];
-    if ((ninjaState == kStateAttacking) && rcollide){
+    if ((ninjaState == kStateAttacking) && rCollide){
         if(characterState != kStateTakingDamage) {
             [self changeState:kStateTakingDamage];
             return;
         }
     }
     else {
-        if (ncollide && !(ninja.flipX == self.flipX) && ninjaState != kStateTakingDamage && characterState != kStateTakingDamage) {
+        if (nCollide && !(ninja.flipX == self.flipX) && ninjaState != kStateTakingDamage && characterState != kStateTakingDamage) {
             [ninja changeState:kStateTakingDamage];   
         }
     }
@@ -163,9 +164,9 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
 //        [CCRepeatForever actionWithAction:robotAnimationAction];  
 //        [self runAction:repeatRobotAnimation];
         
-        double curTime = CACurrentMediaTime();
-        double timeMoving = curTime - movingStartTime;
-        static double TIME_TO_MOVE = 1.5f;
+        //double curTime = CACurrentMediaTime();
+        //double timeMoving = curTime - movingStartTime;
+//        static double TIME_TO_MOVE = 1.5f;
         float margin = 20;
         CGPoint newVel = body->v;
         if (body->p.x < margin) {
@@ -175,7 +176,7 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
         if (body->p.x > 1600 - margin) {
             cpBodySetPos(body, ccp(1600 - margin, body->p.y));
         }
-        if(timeMoving > TIME_TO_MOVE) {
+        if((body->p.x < initialPosition.x-50 && !self.flipX )|| (body->p.x > initialPosition.x+50 && self.flipX)) {
             accelerationFraction *= -1;
             movingStartTime = CACurrentMediaTime();
             [self changeState:kStateRotating];

@@ -9,6 +9,8 @@
 #import "GameManager.h"
 #import "GameScene.h"
 #import "MainMenuScene.h"
+#import "GameOver.h"
+#import "LevelCompleted.h"
 #import "GameScene.h"
 #import "chipmunk.h"
 
@@ -53,6 +55,12 @@ static GameManager* _sharedGameManager = nil;
             break;
         case kGameLevel1:
             sceneToRun = [GameScene node];
+            break;
+        case kLevelCompleteScene:
+            sceneToRun = [LevelCompleted node];
+            break;
+        case kGameOverScene:
+            sceneToRun = [GameOver node];
             break;
         default:
             CCLOG(@"Unknown Scene");

@@ -13,6 +13,7 @@ typedef enum {
     kStateLanding,
     kStateInAir,
     kStateAttacking,
+    kLevelCompleted,
     kStateRotating,
     kStateTakingDamage,
     kStateDead

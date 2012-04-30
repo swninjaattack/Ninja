@@ -7,6 +7,7 @@
 //
 #import "CPNinja.h"
 #import "Robot.h"
+#import "Goal.h"
 #import "GameplayLayer.h"
 #import "GameManager.h"
 #import "Constants.h"
@@ -35,6 +36,7 @@
     self = [super init];
     if (self != nil) {
         isRobotDead = NO;
+        isPlayerDead = NO;
         [[CCDirector sharedDirector] enableRetinaDisplay:YES];
         self.tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"SwipeNinjaLevelOne.tmx"];
         self.background = [_tileMap layerNamed:@"Background"];
@@ -56,9 +58,11 @@
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"scene1atlas.plist"];
         batchNode = [CCSpriteBatchNode batchNodeWithFile:@"scene1atlas.png"];
-        ninja = [[[CPNinja alloc] initWithLocation:ccp(100, 100) space:space groundBody:groundBody] autorelease];
-        robot = [[[Robot alloc] initWithLocation:ccp(200,150) space:space groundBody:groundBody] autorelease];
+        ninja = [[[CPNinja alloc] initWithLocation:ccp(100,100) space:space groundBody:groundBody] autorelease];
+        robot = [[[Robot alloc] initWithLocation:ccp(170,150) space:space groundBody:groundBody] autorelease];
+        goal = [[[Goal alloc] initWithLocation:ccp(1488,1185) space:space groundBody:groundBody] autorelease];
         [self addChild:batchNode z:0];
+        [batchNode addChild:goal z:kGoalSpriteZValue tag:kGoalSpriteTagValue];
         [batchNode addChild:ninja z:kNinjaSpriteZValue tag:kNinjaSpriteTagValue];
         [batchNode addChild:robot];
         [self createLevel];
@@ -227,11 +231,21 @@
     }    
     
     
-    if (isRobotDead != YES) {
+    if (isRobotDead != YES) { //bad for multiple robots..
         if ([robot characterState] == kStateDead) {
             [robot removeBody];
             [batchNode removeChild:robot cleanup:YES];
             isRobotDead = YES;
+        }
+    }
+    if (isPlayerDead != YES) {
+        if ([ninja characterState] == kStateDead) {
+            [batchNode removeChild:ninja cleanup:YES];
+            [[GameManager sharedGameManager] runSceneWithID:kGameOverScene];
+            isPlayerDead = YES;
+        }
+        if ([ninja characterState] == kLevelCompleted) {
+            [[GameManager sharedGameManager] runSceneWithID:kLevelCompleteScene];
         }
     }
     
