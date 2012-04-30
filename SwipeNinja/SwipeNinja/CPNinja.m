@@ -210,8 +210,10 @@ static void separate(cpArbiter *arb, cpSpace *space, void *ignore) {
     }
     
     double timeJumping = CACurrentMediaTime() - jumpStartTime;
-    if (jumpStartTime != 0 && shouldJump==YES && characterState != kStateTakingDamage) {
-        [self changeState:kStateJumping];
+    if (jumpStartTime != 0 && shouldJump==YES) {
+        if (characterState != kStateTakingDamage) {
+            [self changeState:kStateJumping];
+        }
         newVel.y = jumpFactor*2;
         shouldJump = NO;
         jumpStartTime = 0;
