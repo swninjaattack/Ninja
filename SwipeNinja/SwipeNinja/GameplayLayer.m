@@ -64,7 +64,7 @@
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"scene1atlas.plist"];
         batchNode = [CCSpriteBatchNode batchNodeWithFile:@"scene1atlas.png"];
         ninja = [[[CPNinja alloc] initWithLocation:ccp(100,100) space:space groundBody:groundBody] autorelease];
-        
+        [[GameManager sharedGameManager] initRobotsKilled];
         [robots addObject:[[[Robot alloc] initWithLocation:ccp(170,150) space:space groundBody:groundBody] autorelease]];
         [robots addObject:[[[Robot alloc] initWithLocation:ccp(336,256) space:space groundBody:groundBody] autorelease]];
         [robots addObject:[[[Robot alloc] initWithLocation:ccp(656,336) space:space groundBody:groundBody] autorelease]];

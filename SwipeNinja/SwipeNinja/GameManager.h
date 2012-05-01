@@ -18,6 +18,7 @@
 +(GameManager *)sharedGameManager;
 -(void)addRobotKilled;
 -(int)robotsKilled;
+-(void)initRobotsKilled;
 -(void)runSceneWithID:(SceneTypes)sceneID;
 
 @end

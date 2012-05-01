@@ -40,7 +40,7 @@ static GameManager* _sharedGameManager = nil;
     self = [super init];
     if (self != nil) {
         currentScene = kNoSceneUninitialized;
-        numOfRobotsKilled=0;
+        [self initRobotsKilled];
         cpInitChipmunk();
     }
     return self;
@@ -82,6 +82,10 @@ static GameManager* _sharedGameManager = nil;
 
 -(void)addRobotKilled {
     ++numOfRobotsKilled;
+}
+
+-(void)initRobotsKilled{
+    numOfRobotsKilled = 0;
 }
 
 -(int)robotsKilled {
